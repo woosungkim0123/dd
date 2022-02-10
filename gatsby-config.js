@@ -3,6 +3,7 @@ module.exports = {
     title: `Woosung Blog`,
     description: `Developer Woosung Blog`,
     author: `Woosung kim`,
+    siteUrl: 'https://woosungkim0123.github.io/',
   },
   plugins: [
     {
