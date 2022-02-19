@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-pages-index-tsx",
     "path": "/",
-    "result": {"pageContext":{}},
+    "result": {"data":{"allMarkdownRemark":{"edges":[{"node":{"id":"52c37e9b-6673-57ab-a923-20b66ffc1c8d","frontmatter":{"title":"Test2","summary":"테스트 두번째.","date":"2020.08.29.","categories":["Hi","Front","Sal"],"thumbnail":{"publicURL":"/static/a22fd139a1e6be16e941d67edb804f61/test.png"}}}},{"node":{"id":"4586e821-ee9a-54e6-b0a5-273d4015cfd8","frontmatter":{"title":"Test","summary":"홈페이지를 운영하는 많은 사람들 또는 기업들이 검색 페이지 최상단에 보여지게 하기 위해 어떤 최적화 작업을 하는지 알아보자.","date":"2020.07.29.","categories":["Web","SEO","Optimization"],"thumbnail":{"publicURL":"/static/a22fd139a1e6be16e941d67edb804f61/test.png"}}}}]}},"pageContext":{}},
     "staticQueryHashes": []}
