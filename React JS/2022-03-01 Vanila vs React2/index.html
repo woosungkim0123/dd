@@ -164,6 +164,26 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 </code></pre></div>
 <p>변경함수를 이용해서 state를 변경할 때마다 컴포넌트 전체가 새로운 값을 가지고 재생성된다.</p>
 <p>이때 전부 바뀌는 것이 아닌 변경되는 부분만 바뀌게 된다</p>
+<h3>변경함수 팁</h3>
+<p>변경함수로 값을 업데이트 할 때 state의 값을 직접적으로 사용하는 것은 좋은 방법이 아니다</p>
+<p>state의 값이 다른 곳에서도 변경될 수 있기 때문이다.</p>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token comment">// 좋지 않은 방법</span>
+
+<span class="token comment">// 다른 곳에서 변경되어서 우리가 원하던 값이 아닐 수 있다</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>카운트<span class="token punctuation">,</span> 카운트수정<span class="token punctuation">]</span> <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">useState</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">클릭카운트증가</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token function">카운트수정</span><span class="token punctuation">(</span> 카운트 <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 좋은 방법</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">클릭카운트증가</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token comment">// 변경함수 안에 함수도 가능</span>
+	<span class="token comment">// 첫번째 인자는 현재값</span>
+	<span class="token function">카운트수정</span><span class="token punctuation">(</span> <span class="token parameter">current</span> <span class="token operator">=></span> <span class="token keyword">return</span> current <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">)</span> <span class="token comment">// 안전한 방법</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>현재의 state를 바탕으로 다음 state를 계산하고 싶다면 좋은 방법을 선택</p>
+<p>예상치 못한 업데이트가 일어나도 혼동을 주는걸 방지</p>
 <h2>Source</h2>
 <ul>
 <li>
