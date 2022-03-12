@@ -40,18 +40,17 @@ console<span class="token punctuation">.</span><span class="token function">log<
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">value : </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>symbol1<span class="token punctuation">.</span>description<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token comment">// value : id</span></code></pre></div>
 <h3>Map</h3>
 <p>object랑 똑같이 key, value 형태로 저장할 수 있음</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 배열 생성</span>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// Map자료형 생성</span>
 
-<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// Map자료형 생성</span>
 person<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'kim'</span><span class="token punctuation">)</span> <span class="token comment">// 자료 저장 문법</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">)</span> <span class="token comment">// {'name' => 'kim'} 출력</span></code></pre></div>
 <p>Map자료형은 자료의 연관성을 표현하기위해 사용하는 자료형이라 화살표가 있음</p>
-<p>전통적인 object자료형은 key값에 텍스트 밖에 안되지만 Map자료형은 key, value값에 모든 자료를 집어넣을 수 있다(Map의 존재이유)</p>
-<p>Map은 이 값이 저 값과 연관되어있다 라는걸 표현하기 위한 것이기때문</p>
+<br>
+<p>전통적인 object자료형은 key값에 텍스트 밖에 안되지만 Map자료형은 key, value값에 모든 자료형을 집어넣을 수 있다(Map의 존재이유)</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">person<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span> <span class="token comment">// 자료 꺼내기</span>
 person<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span> <span class="token comment">// 자료 삭제</span>
 person<span class="token punctuation">.</span>size <span class="token comment">// person에 저장된 데이터 갯수</span></code></pre></div>
-<p>js로 웹UI만들때 전혀 쓸모가 없고 자료간에 의존성을 나타내고 싶을때나 수학의 맵핑연산을 할때 가끔 사용</p>
+<p>웹 UI만들 때 전혀 쓸모가 없고 자료간에 의존성을 나타내고 싶을때나 수학의 맵핑연산을 할때 가끔 사용</p>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// Map자료형 한번에 만들기</span>
 <span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
   <span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'kim'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -63,7 +62,7 @@ person<span class="token punctuation">.</span>size <span class="token comment">/
   <span class="token comment">// Iterator한 것을 반복문 돌릴땐 for of 사용</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token comment">// name age 출력 (키값 출력)</span>
 <span class="token punctuation">}</span></code></pre></div>
-<p>Set자료형</p>
+<h3>Set</h3>
 <div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">let</span> 출석부 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'john'</span><span class="token punctuation">,</span> <span class="token string">'tom'</span><span class="token punctuation">,</span> <span class="token string">'andy'</span><span class="token punctuation">,</span> <span class="token string">'tom'</span><span class="token punctuation">]</span> <span class="token comment">// tom이 실수로 들어감 (중복자료)</span>
 
 <span class="token comment">// 중복자료를 허용하지않는 자료형(배열과 유사)</span>
