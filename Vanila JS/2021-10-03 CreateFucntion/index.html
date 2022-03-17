@@ -52,7 +52,7 @@
 
 kim<span class="token punctuation">.</span><span class="token function">fullName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// Woosung Kim 출력</span>
 park<span class="token punctuation">.</span><span class="token function">fullName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// David Park 출력</span></code></pre></div>
-<h3>prototype</h3>
+<h3>prototype 예시</h3>
 <p>위 예제의 객체값을 보면 kim, park 인스턴스에 서로 다른값이 들어가있지만 fullName에 대해서는 서로 같은 값을 가지고 있음</p>
 <br>
 <p>메서드가 kim과 park안에 각각 들어가있음</p>
@@ -61,4 +61,33 @@ park<span class="token punctuation">.</span><span class="token function">fullNam
 <br>
 <p>이것은 불필요한 메모리를 잡게되고 쓸데없는 용량을 잡아먹게된다</p>
 <br>
-<p>이때 사용하는 것이 prototype</p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/Vanila JS/2021-10-03 CreateFucntion/";window.___webpackCompilationHash="5f4f5365341ce48cfa20";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-8dd960e9cf75aee8dcd2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-3b0077acc4acd1659808.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-50514af5bb52cb38bcf3.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js" async=""></script><script src="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-3378253422289ff2f06e.js" async=""></script><script src="/app-8dd960e9cf75aee8dcd2.js" async=""></script><script src="/framework-a41a30b6052f08f79325.js" async=""></script><script src="/webpack-runtime-3d3d849b8e8e005c512e.js" async=""></script></body></html>
+<p>이때 사용하는 것이 prototype</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token parameter">firstName<span class="token punctuation">,</span> lastName</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">=</span> firstName
+  <span class="token keyword">this</span><span class="token punctuation">.</span>lastName <span class="token operator">=</span> lastName
+<span class="token punctuation">}</span>
+<span class="token class-name">Person</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">fullName</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lastName<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> kim <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'Woosung'</span><span class="token punctuation">,</span> <span class="token string">'Kim'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> park <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">'David'</span><span class="token punctuation">,</span> <span class="token string">'Park'</span><span class="token punctuation">)</span>
+
+kim<span class="token punctuation">.</span><span class="token function">fullName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// Woosung Kim 출력</span>
+park<span class="token punctuation">.</span><span class="token function">fullName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// David Park 출력</span></code></pre></div>
+<p>kim과 park을 찍어보면 안에는 fullName 메서드가 없다</p>
+<br>
+<p>그런데 fullName을 사용하고 있는 모습을 볼 수 있다</p>
+<br>
+<p>자바스크립트는 생성자 함수를 만들 때 해당 생성자 함수의 prototype을 같이 생성한다.</p>
+<br>
+<p>즉, Person 생성자 함수를 만들 때 Person.prototype도 같이 생성 되는 것이다.</p>
+<br>
+<p>kim, park = 인스턴스(후손) : 지금을 살고 있는 대한민국인</p>
+<br>
+<p>person.prototype = prototype(조상) : 단군</p>
+<br>
+<p>조상님(prototype)에 직접적으로 fullName스킬을 유전자를 부여한 것</p>
+<br>
+<p>후손이 그 스킬을 가지고 있지 않더라도 조상님의 DNA에다가 fullName이라는 스킬을 주입했기 때문에 후손은 가져다 쓸 수 있다</p>
+<br>
+<p>직접적으로 후손이 fullName이라는 스킬을 가지고있지 않아서 불필요한 메모리를 잡아먹지않음</p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/Vanila JS/2021-10-03 CreateFucntion/";window.___webpackCompilationHash="5f4f5365341ce48cfa20";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-8dd960e9cf75aee8dcd2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-3b0077acc4acd1659808.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-50514af5bb52cb38bcf3.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js" async=""></script><script src="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-3378253422289ff2f06e.js" async=""></script><script src="/app-8dd960e9cf75aee8dcd2.js" async=""></script><script src="/framework-a41a30b6052f08f79325.js" async=""></script><script src="/webpack-runtime-3d3d849b8e8e005c512e.js" async=""></script></body></html>
