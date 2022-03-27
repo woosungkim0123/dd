@@ -2,35 +2,43 @@
 <h3>개념</h3>
 <p>중간에 있는 소프트웨어</p>
 <br>
-<p>브라우저가 request한 다음, 그리고 응답하기 전에 그 사이에 middleware가 있음</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">/*
-const logger = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`)
-  next();
-}
-const privateMiddleware = (req, res, next) => {
-  const url = req.url
-  if(url === "/protected") {
-    return res.send("&lt;h1>Not allowed&lt;/h1>")
-  }
-  console.log('allowed')
-  next();
-}
-const handleHome = (req, res) => {
-  
-  return res.send('1');
-  // res.end 끝내는거
-}
-const handlePrivate = (req, res) => {
-  return res.send('welcome private lounge');
-}
-app.use(logger)
-app.use(privateMiddleware)
-app.get("/", handleHome)
-app.get("/", handlePrivate)
-*/</span>
-<span class="token comment">// route 추가</span>
-<span class="token comment">// handleHome은 사실상 finalWare, 마지막으로 호출되는 함수, return 하면 연결이 종료되니까</span>
-<span class="token comment">// 그래서 next가 필요없음</span>
-<span class="token comment">// 하지만 모든 controller가 미들웨어가 될 수 있음</span>
-<span class="token comment">// res.send('111')을 next 이전에 적으면 다음 함수는 호출되지않음</span></code></pre></div></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/Node JS/2022-03-27 Milddleware/";window.___webpackCompilationHash="5f4f5365341ce48cfa20";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-8dd960e9cf75aee8dcd2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-3b0077acc4acd1659808.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-50514af5bb52cb38bcf3.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js" async=""></script><script src="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-3378253422289ff2f06e.js" async=""></script><script src="/app-8dd960e9cf75aee8dcd2.js" async=""></script><script src="/framework-a41a30b6052f08f79325.js" async=""></script><script src="/webpack-runtime-3d3d849b8e8e005c512e.js" async=""></script></body></html>
+<p>브라우저가 request하면 서버가 응답하기 전에 그 사이에 middleware가 있음</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">privateMiddleware</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res<span class="token punctuation">,</span> next</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> url <span class="token operator">=</span> req<span class="token punctuation">.</span>url
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>url <span class="token operator">===</span> <span class="token string">'/protected'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'&lt;h1>Not allowed&lt;/h1>'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 다음 함수를 호출해준다</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> <span class="token function-variable function">handleHome</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// 사실 이 부분에서도 next 사용 가능</span>
+  <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span>
+  <span class="token comment">// res.end : 끝내는거</span>
+  <span class="token comment">// res.send : 보내는거</span>
+<span class="token punctuation">}</span>
+
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> privateMiddleware<span class="token punctuation">,</span> handleHome<span class="token punctuation">)</span>
+<span class="token comment">// '/' 부분이 route</span>
+<span class="token comment">// '/'로 get요청이 오면 express는 콜백함수에 req object res object를 넣어줌</span>
+<span class="token comment">// 뒤에 함수를 handler(controller)라고 함</span>
+<span class="token comment">// 여기서 privateMiddleware과 handleHome은 컨트롤러</span>
+<span class="token comment">// 사실 모든 컨트롤러(handler)는 미들웨어임</span>
+<span class="token comment">// 마지막에 응답을 하는 컨트롤러를 미들웨어라 부르지 않는 것일뿐</span></code></pre></div>
+<p>컨트롤러에는 총 3개의 인자(req, res, next)가 있고 next는 미들웨어에서 다음 함수로 이동할 때 사용한다.</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token comment">// app.use는 global middleware</span>
+<span class="token comment">// 순서가 중요(맨 위부터 차례대로 실행되기 때문)</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> handleHome<span class="token punctuation">)</span> <span class="token comment">// 미들웨어가 적용되지않음</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>logger<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>privateMiddleware<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> handlePrivate<span class="token punctuation">)</span></code></pre></div>
+<br>
+<p>req와 관련된 모든 컨트롤러는 res(응답)하기전까지는 전부 middleware</p>
+<h3>morgan</h3>
+<p>자주 쓰이는 미들웨어</p>
+<br>
+<p>설치후 함수호출후 설정해야함</p>
+<br>
+<p>morgan 함수를 호출하면 설정한대로 middleware를 return 해줌</p>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">import</span> morgan <span class="token keyword">from</span> <span class="token string">'morgan'</span>
+<span class="token keyword">const</span> logger <span class="token operator">=</span> <span class="token function">morgan</span><span class="token punctuation">(</span><span class="token string">'common'</span><span class="token punctuation">)</span> <span class="token comment">// common은 설정부분</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>logger<span class="token punctuation">)</span> <span class="token comment">// 미들웨어로 호출</span></code></pre></div></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/Node JS/2022-03-27 Milddleware/";window.___webpackCompilationHash="5f4f5365341ce48cfa20";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-8dd960e9cf75aee8dcd2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-3b0077acc4acd1659808.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-50514af5bb52cb38bcf3.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js" async=""></script><script src="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-3378253422289ff2f06e.js" async=""></script><script src="/app-8dd960e9cf75aee8dcd2.js" async=""></script><script src="/framework-a41a30b6052f08f79325.js" async=""></script><script src="/webpack-runtime-3d3d849b8e8e005c512e.js" async=""></script></body></html>
