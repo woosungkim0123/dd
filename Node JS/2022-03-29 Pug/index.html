@@ -20,4 +20,57 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// 현재 작업 디렉토리는 node.js를 실행하는 디렉토리</span>
 <span class="token comment">// package.json에서 node.js를 실행하고있음</span></code></pre></div>
 <p>우리는 src폴더에 views 페이지가 있으니 default(기본값)을 변경해줘야 한다.</p>
-<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view"</span><span class="token punctuation">,</span> process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/src/views"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/Node JS/2022-03-29 Pug/";window.___webpackCompilationHash="5f4f5365341ce48cfa20";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-8dd960e9cf75aee8dcd2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-3b0077acc4acd1659808.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-50514af5bb52cb38bcf3.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js" async=""></script><script src="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-3378253422289ff2f06e.js" async=""></script><script src="/app-8dd960e9cf75aee8dcd2.js" async=""></script><script src="/framework-a41a30b6052f08f79325.js" async=""></script><script src="/webpack-runtime-3d3d849b8e8e005c512e.js" async=""></script></body></html>
+<div class="gatsby-highlight" data-language="javascript"><pre class="language-javascript"><code class="language-javascript">app<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"view"</span><span class="token punctuation">,</span> process<span class="token punctuation">.</span><span class="token function">cwd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"/src/views"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h3>장점</h3>
+<h4>깔끔한 HTML</h4>
+<h4>자바스크립트 코드를 사용할 수 있다</h4>
+<p>자바스크립트 코드를 사용하면 유저가 보기 전에 텍스트로 변환됨(렌더링)</p>
+<br>
+<p>pug는 코드를 받아서 모든걸 체크하고 자바스크립트를 실행하고 유저에게 제공함</p>
+<div class="gatsby-highlight" data-language="pug"><pre class="language-pug"><code class="language-pug"><span class="token doctype">doctype html</span>
+<span class="token tag">html<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">lang</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"ko"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">head</span>
+    <span class="token tag">title</span> <span class="token plain-text">Wetube</span>
+  <span class="token tag">body</span>
+    <span class="token tag">h1</span> <span class="token plain-text">Watch Video </span>
+    <span class="token tag">footer</span> <span class="token plain-text">&amp;copy; #{new Date().getFullYear()} Wetube</span></code></pre></div>
+<h4>반복할 필요가 없다.(partial)</h4>
+<div class="gatsby-highlight" data-language="pug"><pre class="language-pug"><code class="language-pug"><span class="token comment">// views/partials/footer.pug</span>
+<span class="token tag">footer</span> <span class="token plain-text">&amp;copy; #{new Date().getFullYear()} Wetube</span>
+
+<span class="token comment">// views/watch.pug</span>
+<span class="token doctype">doctype html</span>
+<span class="token tag">html<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">lang</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"ko"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">head</span>
+    <span class="token tag">title</span> <span class="token plain-text">Wetube</span>
+  <span class="token tag">body</span>
+    <span class="token tag">h1</span> <span class="token plain-text">Watch Video </span>
+    <span class="token keyword">include partials/footer.pug</span></code></pre></div>
+<h4>inheritance(상속)을 통해 레이아웃 베이스를 만들어서 반복을 줄일 수 있다</h4>
+<p>block은 템플릿의 창문 같은 것, 열어서 내용을 넣을 수 있음</p>
+<div class="gatsby-highlight" data-language="pug"><pre class="language-pug"><code class="language-pug"><span class="token comment">// base.pug</span>
+<span class="token doctype">doctype html</span>
+<span class="token tag">html<span class="token attributes"><span class="token punctuation">(</span><span class="token attr-name">lang</span><span class="token punctuation">=</span><span class="token attr-value"><span class="token string">"ko"</span></span><span class="token punctuation">)</span></span></span>
+  <span class="token tag">head</span>
+    <span class="token tag">title</span> <span class="token plain-text">#{pageTitle} | Wetube</span>
+  <span class="token tag">body</span>
+    <span class="token keyword">block content</span>
+  <span class="token keyword">include partials/footer.pug</span>
+
+<span class="token comment">// watch.pug</span>
+<span class="token keyword">extends base.pug</span>
+
+<span class="token keyword">block content</span>
+  <span class="token tag">h1</span> <span class="token plain-text">Watch!</span>
+
+<span class="token comment">// home.pug</span>
+<span class="token keyword">extends base.pug</span>
+
+<span class="token keyword">block content</span>
+  <span class="token tag">h1</span> <span class="token plain-text">Home!</span>
+
+<span class="token comment">// videoController.js</span>
+<span class="token tag">export</span> <span class="token plain-text">const trending = (req, res) => {</span>
+  <span class="token tag">res<span class="token attr-class">.render</span><span class="token attributes"><span class="token punctuation">(</span>"home"<span class="token punctuation">,</span> { pageTitle: "Home" }<span class="token punctuation">)</span></span></span>;
+};</code></pre></div>
+<p>render은 두개의 인수를 받는데 하나는 view의 이름, 하나는 템플릿에 보낼 변수</p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80">Thank You for Visiting My Blog, Have a Good Day 😆<br/>© 2021 Developer Hyun, Powered By Gatsby.</footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/Node JS/2022-03-29 Pug/";window.___webpackCompilationHash="5f4f5365341ce48cfa20";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-4718f0fec20e0d09d7f5.js"],"app":["/app-8dd960e9cf75aee8dcd2.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-3b0077acc4acd1659808.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-50514af5bb52cb38bcf3.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js"]};/*]]>*/</script><script src="/polyfill-4718f0fec20e0d09d7f5.js" nomodule=""></script><script src="/component---src-templates-post-template-tsx-b850f00ce2b66889e5c4.js" async=""></script><script src="/d0dcf9c1039535d44ee74defc829dfbf62dac3c5-3378253422289ff2f06e.js" async=""></script><script src="/app-8dd960e9cf75aee8dcd2.js" async=""></script><script src="/framework-a41a30b6052f08f79325.js" async=""></script><script src="/webpack-runtime-3d3d849b8e8e005c512e.js" async=""></script></body></html>
