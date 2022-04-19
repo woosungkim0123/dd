@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgatsby_starter_default=self.webpackChunkgatsby_starter_default||[]).push([[133],{8528:function(t,e,a){a.r(e);a(7294);var s=a(185),u=a(3431);e.default=function(t){return console.log(t),(0,u.tZ)(s.Z,null,"Post Template")}}}]);
-//# sourceMappingURL=component---src-templates-post-template-tsx-57c2014ce3d5624ef806.js.map
