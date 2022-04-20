@@ -1,12 +1,37 @@
-import Test from "components/Test";
-import { Link } from "gatsby";
-import React, { FunctionComponent } from "react";
+import styled from "@emotion/styled";
+import GlobalStyle from "components/Common/GlobalStyle";
+import NavHeader from "components/Main/NavHeader";
+import React, { useState, FunctionComponent } from "react";
+
+const BackgroundWrap = styled.div<{theme: boolean}>`
+  width: 100vw;
+  height: 100vh;
+  background-color: ${({theme}) => theme ? '#1f2023;;' : '#fff' };
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+const Container = styled.div`
+  max-width: 1200px;
+`
 
 const IndexPage: FunctionComponent = function () {
+  const [theme, setTheme] = useState(false)
+  const changeTheme = () => {
+    setTheme((prev) => !prev);
+    console.log(theme)
+  }
   return (
     <>
-      <Test text="Hello World" />
-      <Link to="/info">To Info</Link>
+      <GlobalStyle />
+      <BackgroundWrap theme={theme}>
+        <Container>
+          <NavHeader theme={theme} />
+          <button onClick={changeTheme}>123</button>
+        </Container>
+        
+      </BackgroundWrap>
+      
     </>
   )
 }
