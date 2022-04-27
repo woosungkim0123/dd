@@ -1,6 +1,5 @@
 import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
-import NavHeader from 'components/Main/NavHeader'
 import React, { useState, FunctionComponent } from 'react'
 
 const BackgroundWrap = styled.div<{ theme: boolean }>`
