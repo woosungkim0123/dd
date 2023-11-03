@@ -8,8 +8,6 @@ tags: [node.js, migration]
 
 <br>
 <br>
-<br>
-<br>
 
 회사에서 node.js 서버를 마이그레이션 했던 경험에 대해 이야기 해보고자 한다.
 

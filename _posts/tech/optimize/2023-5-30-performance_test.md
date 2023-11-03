@@ -2,12 +2,13 @@
 title: 성능 테스트 개념
 author: woosungKim
 date: 2023-5-30 20:00:00 +0800
-categories: [성능]
+categories: [성능, 테스트]
 tags: [성능 테스트]
 ---
 
-<br>
-<br>
+**1. 성능 테스트 개념**  
+[2. 성능 테스트 - nGrinder](/posts/ngrinder)
+
 <br>
 <br>
 

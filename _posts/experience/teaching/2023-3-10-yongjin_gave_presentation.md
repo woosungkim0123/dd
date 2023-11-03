@@ -8,8 +8,6 @@ tags: [node, backend, lecture]
 
 <br>
 <br>
-<br>
-<br>
 
 대구영진직업전문학원에서 강의를 진행한 경험에 대해 이야기 해보고자 한다.
 
