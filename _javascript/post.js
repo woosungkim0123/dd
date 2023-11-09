@@ -6,7 +6,7 @@ import {
   initClipboard,
   initPageviews,
   toc
-} from './modules/plugins';
+} from './plugins';
 
 basic();
 initSidebar();
