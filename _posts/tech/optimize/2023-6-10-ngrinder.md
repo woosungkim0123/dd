@@ -40,7 +40,7 @@ nGrinder는 Controller와 Agent 구조를 사용하여 타겟 서버에 대한 �
 
 nGrinder 시스템에서 Controller는 테스트의 중심점으로서 모든 테스트를 조정하며, Agent는 실제 부하를 생성하여 성능 테스트를 실행하는 역할을 합니다.
 
-![ngrinder 구성](/posts/ngrinder_1.png)
+![ngrinder 구성](/posts/ngrinder/ngrinder_1.png)
 
 <br>
 
@@ -133,7 +133,7 @@ volume 설정을 꼭 해주셔야합니다. 만약 컨테이너가 삭제되었�
 각각의 EC2에 Controller와 Agent가 켜져 있는 상태에서 Controller의 4040포트로 접속하면 nGrinder 메인 화면이 보인다.  
 기본 아이디와 비밀번호는 admin으로 동일하다
 
-![ngrinder 메인화면](/posts/ngrinder_2.png)
+![ngrinder 메인화면](/posts/ngrinder/ngrinder_2.png)
 
 <br>
 
@@ -189,7 +189,7 @@ class TestRunner {
 
 성능 테스트 메뉴에서 테스트 생성을 누르면 밑에 페이지가 뜬다
 
-![성능 테스트 페이지](/posts/ngrinder_3.png)
+![성능 테스트 페이지](/posts/ngrinder/ngrinder_3.png)
 
 <br>
 
@@ -199,7 +199,7 @@ class TestRunner {
 
 TPS가 있고 당시 Agent의 로그도 볼 수 있습니다.
 
-![성능 결과](/posts/ngrinder_4.png)
+![성능 결과](/posts/ngrinder/ngrinder_4.png)
 
 <br>
 
