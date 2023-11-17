@@ -140,6 +140,7 @@ SUID가 설정된 실행 파일은 사용자에게 파일 소유자의 권한으
 
 ```shell
 chmod u+s [파일명]
+chmod 4XXX [파일명] # XXX는 권한설정(r,w,x)
 ```
 
 <br>
@@ -152,6 +153,7 @@ chmod u+s [파일명]
 
 ```shell
 chmod g+s [파일명 or 디렉토리명]
+chmod 2XXX [파일명 or 디렉토리명] # XXX는 권한설정(r,w,x)
 ```
 
 <br>
@@ -165,5 +167,6 @@ chmod g+s [파일명 or 디렉토리명]
 예를 들어, 시스템의 /tmp 디렉토리에는 여러 사용자가 임시 파일을 생성할 수 있으며, Sticky Bit는 이 사용자들이 서로의 파일을 실수로나 악의적으로 삭제하는 것을 방지합니다. 
 
 ```shell
-chmod o+s [디렉토리명]
+chmod o+t [디렉토리명]
+chmod 1XXX [디렉토리명] # XXX는 권한설정(r,w,x)
 ```
