@@ -6,9 +6,16 @@ categories: [Spring, Batch]
 tags: [Spring, Batch, Bug]
 ---
 
+2023년 12월 19일 `JobRegistryBeanPostProcessor` Bean이 자동으로 등록되는 것을 방지함으로써 문제를 해결하실 수 있습니다.
+
+기존 해결방법을 모두 제거하고 해당 내용으로 수정하였습니다.
+
+----
+
 2023년 12월 17일 현재, Spring Boot 3.2에서 Batch를 사용할 때 발생하는 BeanPostProcessorChecker 경고와 관련된 명확한 해결책이나 패치는 아직 제공되지 않았습니다. 이 문제에 대한 추가 정보가 나오는 대로 본 글을 업데이트할 예정입니다.
 
 <a href="https://github.com/spring-projects/spring-batch/issues/4519" target="_blank"><strong>Spring Batch Issue#4519</strong></a>
+
 
 
 ## 문제 파악
@@ -29,27 +36,30 @@ trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.boot.autoco
 
 - `Spring Batch 5.1`
 
-## 임시 해결책
+## 해결책
 
-경고에 대한 결론을 먼저 말씀 드리겠습니다.  
+Spring Boot 3.2와 Spring Batch 5.0 이상에서 발생하는 문제의 근본 원인은 `JobRegistryBeanPostProcessor`가 자동으로 설정되기 때문입니다. 이 문제는 <a href="https://github.com/spring-projects/spring-batch/issues/4245" target="_blank"><strong>Spring Batch Issue#4245</strong></a>에서 소개된 변경 사항에 기인합니다.
 
-DataSourceConfiguration$Hikari를 포함한 일부 빈들이 BeanPostProcessors에 의한 완전한 처리 전에 너무 일찍 사용되거나 관련 설정이 적용되고 있고 이로 인해 경고 메시지가 발생한 것으로 보입니다.
+이 변경으로 인해 `JobRegistryBeanPostProcessor`가 자동으로 등록되면서, 일부 빈들이 BeanPostProcessor의 처리를 완전히 받기 전에 초기화를 시도하는 문제가 발생하며, 이로 인해 경고 메시지가 발생합니다.
 
-### 1. Spring Boot 3.1.x 버전 사용
+> JobRegistryBeanPostProcessor는 Spring Batch에서 JobRegistry와 관련된 빈들을 자동으로 등록하는 역할을 합니다.
 
-Spring Boot 3.2.0 버전을 사용할 필수적인 이유가 없다면, 3.1.x 버전대를 사용하는 것이 좋습니다. 3.1.x 버전에서는 이러한 경고가 발생하지 않습니다.
+### JobRegistryBeanPostProcessor 빈의 자동 등록 방지
+
+```java
+@Configuration
+public class BatchWarningConfig {
+
+    @Bean
+    public static BeanDefinitionRegistryPostProcessor jobRegistryBeanPostProcessorRemover() {
+        return registry -> registry.removeBeanDefinition("jobRegistryBeanPostProcessor");
+    }
+}
+```
+
+Spring Boot 3.2.0 버전을 사용해야 하는 필수적인 이유가 없다면, 3.1.x 버전대를 사용하는 것이 더 적절할 것입니다. 3.1.x 버전에서는 이러한 경고가 발생하지 않습니다.
 
 참고로, 현재 Spring Boot의 `Batch`뿐만 아니라 `web-services`에서도 비슷한 문제가 발생하고 있습니다 - <a href="https://github.com/spring-projects/spring-ws/issues/1391" target="_blank"><strong>spring-ws Issues#1391</strong></a>
-
-### 2. 경고를 무시하고 사용
-
-실행 자체에는 문제가 되지 않고 정상 작동하지만, 빈을 새로 초기화하는 데 추가 시간이 소요됩니다. 데이터 1만개를 새 테이블에 넣는 간단한 배치 작업으로 평균 시간을 측정했습니다.
-
-`v3.1.6`에서는 `17.231`초
-
-`v3.2.0`에서는 `17.761`초  
-
-약 0.5초 가량의 차이가 나타납니다.
 
 ## 버전 비교를 통한 관찰
 
