@@ -6,17 +6,17 @@ categories: [Spring, Batch]
 tags: [Spring, Batch, Bug]
 ---
 
-2023년 12월 19일 `JobRegistryBeanPostProcessor` Bean이 자동으로 등록되는 것을 방지함으로써 문제를 해결하실 수 있습니다.
+2023년 12월 19일  
+`JobRegistryBeanPostProcessor` Bean이 자동으로 등록되는 것을 방지함으로써 문제를 해결하실 수 있습니다.
 
 기존 해결방법을 모두 제거하고 해당 내용으로 수정하였습니다.
 
 ----
 
-2023년 12월 17일 현재, Spring Boot 3.2에서 Batch를 사용할 때 발생하는 BeanPostProcessorChecker 경고와 관련된 명확한 해결책이나 패치는 아직 제공되지 않았습니다. 이 문제에 대한 추가 정보가 나오는 대로 본 글을 업데이트할 예정입니다.
+2023년 12월 17일  
+Spring Boot 3.2에서 Batch를 사용할 때 발생하는 BeanPostProcessorChecker 경고와 관련된 명확한 해결책이나 패치는 아직 제공되지 않았습니다. 이 문제에 대한 추가 정보가 나오는 대로 본 글을 업데이트할 예정입니다.
 
 <a href="https://github.com/spring-projects/spring-batch/issues/4519" target="_blank"><strong>Spring Batch Issue#4519</strong></a>
-
-
 
 ## 문제 파악
 
