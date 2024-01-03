@@ -8,6 +8,8 @@ tags: [Spring, Batch, Optimization]
 
 Spring Batch를 사용하면서 대용량 데이터를 일괄 처리할 때 발생하는 성능 이슈를 해결하는 방법에 대해서 이야기 해보고자 합니다.
 
+전체 코드는 <a href="https://github.com/woosungkim0123/spring-batch-deep-dive/tree/main/optimization" target="_blank"><strong>링크</strong></a>에서 확인하실 수 있습니다.
+
 ## Batch 성능 개선이 필요한 이유
 
 Spring Batch는 대량의 데이터를 효율적으로 처리할 수 있는 강력한 프레임워크지만 처리해야 할 데이터 양이 많을수록 성능 문제가 발생할 가능성이 커집니다.   
@@ -151,6 +153,19 @@ public JdbcCursorItemReader<Product> reader() {
 
 **주의**: JpaCursorItemReader는 데이터를 모두 읽고 서버에서 직접 Cursor하는 방식이라 OOM(OutOfMemory)을 유발할 수 있습니다. JdbcCursorItemReader 사용을 권장합니다.
 
+### 성능 비교
+
+100만개 데이터를 대상으로 간단한 조건 쿼리(인덱스 사용)를 사용해서 테스트를 진행하였습니다. 
+
+|Reader|총 소요시간|
+|------|---|
+|QuerydslPagingItemReader|25분 27초|
+|QuerydslZeroPagingItemReader|14분 48초|
+|JdbcCursorItemReader|14분 43초|
+|JdbcCoveringIndexPagingItemReader|16분 20초|
+
+OFFSET을 개선한 QuerydslZeroPagingItemReader의 경우 끝날때 까지 일정한 읽기 속도를 보여줬습니다. 
+
 ## Processor 성능 개선
 
 대규모 데이터를 다루는 통계 쿼리 작성시, 일반적으로 GROUP BY와 SUM을 활용합니다. 하지만 데이터 양이 증가하고 쿼리가 복잡해짐에 따라, 성능적으로 개선하기 힘들어지는 경우가 많습니다.
@@ -177,6 +192,70 @@ GROUP BY를 배제하고, 직접적인 집계(Aggregation) 방식을 채택하�
 
 추가로 Spring Data Redis에서는 이 기능을 직접적으로 지원하지 않으므로, Redis 파이프라인을 위한 별도의 대량 처리 라이브러리 개발이 필요합니다.
 
+```java
+@Bean
+public ItemWriter<Product> redisItemWriter() {
+    return products -> stringRedisTemplate.executePipelined((RedisCallback<Object>) connection -> {
+        for (Product product : products) {
+            String key = redisKeyPrefix + product.getCreateDate().toString();
+            connection.stringCommands().incrBy(key.getBytes(), product.getAmount());
+        }
+        return null;
+    });
+}
+
+@Bean
+public StepExecutionListener redisToDatabaseSaver() {
+    return new StepExecutionListener() {
+        @Override
+        public ExitStatus afterStep(@NonNull StepExecution stepExecution) {
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+
+            try {
+                Set<String> keys = redisTemplate.keys(redisKeyPrefix + "*");
+                ValueOperations<String, Long> valueOps = redisTemplate.opsForValue();
+
+                for (String key : keys) {
+                    Long totalAmount = valueOps.get(key);
+                    LocalDate createDate = LocalDate.parse(key.split(":")[1]);
+
+                    ProductBackup backup = ProductBackup.builder()
+                            .amount(totalAmount)
+                            .createDate(createDate)
+                            .build();
+                    entityManager.merge(backup);
+                }
+                transaction.commit();
+            } catch (Exception e) {
+                transaction.rollback();
+                throw e;
+            } finally {
+                entityManager.close();
+            }
+            return ExitStatus.COMPLETED;
+        }
+    };
+}
+```
+
+### 파이프라인 사용 전 후 성능 비교
+
+100만개의 데이터를 대상으로 간단한 SUM 쿼리를 통해 PipeLine 사용 전 후 성능을 비교하였습니다.
+
+|처리 방법|총 소요시간|
+|------|---|
+|Redis|11분 11초|
+|Redis PipeLine|48초|
+
+### Processor에서 API 사용시 느린 경우
+
+Spring Batch의 Processor는 기본적으로 단건 처리를 기반으로 설계되어 있습니다. 각 데이터 항목을 독립적으로 처리할 수 있는 장점이 있지만, API 호출과 같은 네트워크 I/O 작업을 포함할 경우 성능 저하의 원인이 됩니다.
+
+Processor에서 회원 정보를 조회하는 API가 150ms가 걸린다고 가정하고 chunk가 
+
+
 ## Writer 성능 개선
 
 
@@ -187,7 +266,11 @@ GROUP BY를 배제하고, 직접적인 집계(Aggregation) 방식을 채택하�
 
 ## 참조
 
-<a href="https://youtu.be/2IIwQDIi3ys?si=GbWT9cK-BHC-tDwn" target="_blank"><strong>[Data] Batch Performance 극한으로 끌어올리기: 1억 건 데이터 처리를 위한 노력 / if(kakao)dev2022</strong></a>
+<a href="https://youtu.be/2IIwQDIi3ys?si=GbWT9cK-BHC-tDwn" target="_blank"><strong>[Data] Batch Performance 극한으로 끌어올리기: 1억 건 데이터 처리를 위한 노력 / if(kakao)dev2022</strong></a> 
 
+<a href="https://www.youtube.com/watch?v=VSwWHHkdQI4&t=95s" target="_blank"><strong>Spring Batch 애플리케이션 성능 향상을 위한 주요 팁 (김남윤, Yun)</strong></a>
 
+<a href="https://techblog.woowahan.com/2662" target="_blank"><strong>Spring Batch와 Querydsl - 우아한 기술 블로그</strong></a>
+
+<a href="https://jojoldu.tistory.com/297" target="_blank"><strong>[Redis] SpringBoot Data Redis 로컬/통합 테스트 환경 구축하기</strong></a>
 
