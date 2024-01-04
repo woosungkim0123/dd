@@ -1,7 +1,7 @@
 ---
 title: Spring Batch 성능 최적화
 author: woosungKim
-date: 2023-12-17 00:00:00 +0800
+date: 2024-1-4 00:00:00 +0800
 categories: [Spring, Batch]
 tags: [Spring, Batch, Optimization]
 ---
@@ -253,16 +253,193 @@ public StepExecutionListener redisToDatabaseSaver() {
 
 Spring Batch의 Processor는 기본적으로 단건 처리를 기반으로 설계되어 있습니다. 각 데이터 항목을 독립적으로 처리할 수 있는 장점이 있지만, API 호출과 같은 네트워크 I/O 작업을 포함할 경우 성능 저하의 원인이 됩니다.
 
-Processor에서 회원 정보를 조회하는 API가 150ms가 걸린다고 가정하고 chunk가 
+Processor에서 회원 정보를 조회하는 API가 150ms가 걸리고 chunk 사이즈가 1000이라면 150,000ms(약 2.5분)이 소요됩니다.
 
+**벌크 API로 변경**
+
+API 자체를 단건 조회 대신 한번에 여러 항목을 한 번에 조회할 수 있는 벌크 API를 제공하도록 하여 성능을 개선할 수 있습니다.
+
+**Writer 처리로 변경**
+
+API 스펙이 변경이 불가능한 경우, Processor 제거하고 대신 Writer에서 네트워크 I/O 작업을 수행하는 방법이 있습니다.
+
+### RX 기반 멀티 스레드 Writer 처리
+
+Reader에서 Item을 단건이 아닌 Chunk Size만큼 List로 넘겨받는 Writer 단계에서 RX(Reactive Extensions)를 활용한 멀티 스레드 방식으로 네트워크 I/O 작업을 병렬 처리하여 성능을 개선할 수 있습니다.
+
+![RX 기반 멀티 스레드 병렬 처리](/posts/batch/optimization_1.png)
+
+그림을 보면 다른 데이터 항목들이 병렬적으로 처리되고 있는데 `parallel(3)`은 동시에 세 개의 작업을 처리할 수 있는 병렬 처리 능력을 의미합니다. 병렬 처리된 데이터 스트림은 `sequential` 프로세스를 통해 순차적으로 병합되고 이후 추가적인 INSERT나 UPDATE를 진행하게 됩니다.
+
+주의할 점은 병렬 처리(parallel) 숫자를 무한정으로 늘린다고 빨라지지 않는다는 점입니다. 나누고 병합하는 과정에서 추가적인 리소스가 들어가고 DB 커넥션수와 CPU 리소스를 고려해야합니다.
+스케줄 I/O 시스템 내부적으로 지정해주는 값을 사용하는 것도 좋은 방법입니다.
 
 ## Writer 성능 개선
 
+Writer에서는 데이터베이스 I/O를 최소화 하는 방법으로 성능을 개선할 수 있습니다.
+
+### 배치 삽입(Batch Insert) 활용
+
+네트워크 지연(latency)이 성능 저하의 주요 원인이 될 수 있으며, 이를 최소화하기 위해 쿼리를 일괄적으로 처리하는 Batch Insert가 필수적입니다. 이 방식은 데이터베이스 I/O를 최소화하여 성능을 향상시킬 수 있습니다.
+
+> Batch Insert  
+> 
+> 여러 개의 INSERT 명령을 단일 SQL 쿼리로 결합함으로써 데이터베이스에 대한 호출 횟수를 줄이고, 네트워크 오버헤드와 데이터베이스 서버의 부하를 감소
+
+Batch Insert를 어떻게 사용하는 지에 따라서도 성능 차이가 발생합니다. 이 부분은 HomoEfficio님의 <a href="https://homoefficio.github.io/2020/01/25/Spring-Data%EC%97%90%EC%84%9C-Batch-Insert-%EC%B5%9C%EC%A0%81%ED%99%94/" target="_blank"><strong>Spring Data에서 Batch Insert 최적화</strong></a> 글을 참고하시면 좋을 것 같습니다.
+
+```java
+@Bean
+public JdbcBatchItemWriter<ProductBackup> writer() {
+    JdbcBatchItemWriter<ProductBackup> writer = new JdbcBatchItemWriter<>();
+
+    writer.setDataSource(dataSource);
+    writer.setSql("INSERT INTO product_backup (name, amount, create_date) VALUES (:name, :amount, :createDate)");
+
+    writer.setItemSqlParameterSourceProvider(
+            item -> new MapSqlParameterSource()
+                    .addValue("name", item.getName())
+                    .addValue("amount", item.getAmount())
+                    .addValue("createDate", item.getCreateDate())
+    );
+
+    return writer;
+}
+```
+
+총 데이터는 30만개이며 소요시간의 경우 Writer만 변경해서 배치를 실행시킨 결과입니다.
+
+|처리 방법|총 소요시간|
+|------|---|
+|JpaItemWriter|4분 17초|
+|JdbcBatchItemWriter|3분 42초|
+
+## IN 절 활용
+
+쿼리 IN 절을 사용하여 단일 쿼리 내에서 여러 값을 대상으로 조회하거나 업데이트할 때 데이터베이스의 처리량을 최적화할 수 있습니다.
+
+```sql
+-- Chunk Size 1000 기준
+
+-- 단일 UPDATE
+-- Chunk Size만큼 Database I/O가 발생 (최대 1000번) 
+UPDATE user SET grade = 'BASIC' WHERE id = 1;
+-- ...
+UPDATE user SET grade = 'NORMAL' WHERE id = 10;
+-- ...
+UPDATE user SET grade = 'VIP' WHERE id = 1000;
+
+-- IN UPDATE
+-- Chunk Size와 상관없이 최대 3번의 Database I/O가 발생 (최대 3번)
+UPDATE user SET grade = 'BASIC' WHERE id in (1, 2, ...);
+UPDATE user SET grade = 'NORMAL' WHERE id in (10 11, ...);
+UPDATE user SET grade = 'VIP' WHERE id in (500, ...);
+```
+
+위 예시와 같이, IN 절을 사용하면 하나의 쿼리로 여러 행을 동시에 처리할 수 있고 복수의 조건을 만족하는 레코드를 효과적으로 필터링하는 데 특히 유용합니다.
+
+### JDBC의 ExecuteBatch 활용
+
+그러나 IN 절로 처리하기 어려운 상황이나 대량의 데이터를 다룰 때는 JDBC의 ExecuteBatch를 사용할 수 있습니다. ExecuteBatch는 INSERT, UPDATE, DELETE 등의 다양한 종류의 쿼리를 한 번에 묶어 처리할 수 있습니다.
+
+여러 SQL 명령문을 하나의 배치로 묶어 데이터베이스 서버에 한 번에 전송하고 실행함으로써, 네트워크 지연과 데이터베이스 I/O를 최소화할 수 있습니다. (Chunk Size를 1000으로 설정한 경우, 최대 1000개의 쿼리가 한 번에 묶여서 데이터베이스로 전송되고 실행됩니다)
+
+```java
+// Item Writer
+public class CustomJdbcBatchItemWriter<T> implements ItemWriter<T> {
+    private DataSource dataSource;
+    private String sql;
+    private BiConsumer<PreparedStatement, T> preparedStatementSetter;
+
+    public CustomJdbcBatchItemWriter(DataSource dataSource, String sql,
+                                     BiConsumer<PreparedStatement, T> preparedStatementSetter) {
+        this.dataSource = dataSource;
+        this.sql = sql;
+        this.preparedStatementSetter = preparedStatementSetter;
+    }
+
+    @Override
+    public void write(Chunk<? extends T> chunk) throws Exception {
+        List<? extends T> items = chunk.getItems();
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+
+        try {
+            connection = dataSource.getConnection(); // 커넥션 획득
+            connection.setAutoCommit(false); // 자동 커밋 비활성화
+            preparedStatement = connection.prepareStatement(this.sql); //sql 로 prepared statement 생성
+
+            for (T item : items) {
+                preparedStatementSetter.accept(preparedStatement, item); // prepared statement에 파라미터 바인딩
+                preparedStatement.addBatch(); // batch에 prepared statement 추가
+            }
+
+            preparedStatement.executeBatch(); // 배치에 추가된 모든 SQL 문을 데이터베이스에 한 번에 전송
+            connection.commit(); // 트랜잭션을 커밋
+        } catch (SQLException e) {
+            if (connection != null) {
+                connection.rollback();
+            }
+            throw new Exception("Error executing batch write", e);
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+    }
+}
+```
+
+```java
+// Batch Writer
+@Bean
+public CustomJdbcBatchItemWriter<ProductBackup> writer() {
+    String sql = "INSERT INTO product_backup (name, amount, create_date) VALUES (?, ?, ?)";
+
+    return new CustomJdbcBatchItemWriter<>(dataSource, sql, (PreparedStatement ps, ProductBackup item) -> {
+        try {
+            ps.setString(1, item.getName());
+            ps.setLong(2, item.getAmount());
+            ps.setDate(3, Date.valueOf(item.getCreateDate()));
+        } catch (SQLException e) {
+            throw new RuntimeException("Error setting PreparedStatement values", e);
+        }
+    });
+}
+
+```
+
+**Batch Insert와 JDBC의 ExecuteBatch Insert 차이**
+
+- Batch Insert: 한 번에 많은 데이터를 삽입하는 하나의 큰 SQL 문을 작성하여 처리
+
+- JDBC ExecuteBatch: 여러 개의 작은 INSERT 문을 모아 한 번에 처리하는 방법
 
 
+### 명시적으로 쿼리를 구현
 
+성능을 높이기 위해 필요한 컬럼만 업데이트하는 명시적 쿼리를 구현합니다. 필요하지 않은 컬럼을 제외함으로써 데이터베이스 서버 부하와 전송(Fetch) 데이터량을 감소시키며, 네트워크를 통해 전송된 데이터의 객체 변환 처리(Deserialize) 시간도 단축시킬 수 있습니다.
 
+### JPA 사용 고민
 
+- JPA는 편리하고 풀스택 ORM이지만, 복잡성과 불필요한 체크 로직으로 인해 성능 저하를 일으킬 수 있습니다. 배치 처리에서는 Reader와 Writer가 구분되어 있어서 JPA의 영속성 관리와 더티 체킹이 불필요합니다.
+
+- 일부 JPA 구현체는 엔티티를 업데이트할 때 모든 필드를 포함하는 업데이트 쿼리를 생성할 수 있어, 이로 인해 불필요한 데이터베이스 트래픽과 부하가 발생합니다.
+
+- IDENTITY ID 생성 전략을 사용할 경우, JPA는 각각의 Insert 연산 후 즉시 생성된 ID를 필요로 하므로, 배치 Insert 기능을 지원하지 않습니다.
+
+- 데이터를 읽을 때부터 JPA를 사용하지 않는 것도 성능 최적화를 위한 좋은 방법이 될 수 있습니다.
+
+## 결론
+
+성능 최적화를 고려할 때, 단계적으로 접근하는 것이 중요합니다. 
+
+처음부터 복잡하고 직관적이지 않은 방법을 도입하기보다는 크게 변경하지 않는 선에서 성능 향상을 시도해보는 것이 좋습니다. 
+
+그럼에도 불구하고 성능 이슈가 여전히 존재한다면, 단계적으로 한 단계씩 최적화를 진행하여 문제를 해결하는 것이 중요하다고 생각됩니다.
 
 ## 참조
 
