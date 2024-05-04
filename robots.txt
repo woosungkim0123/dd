@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://woosungkim0123.github.io/sitemap.xml
