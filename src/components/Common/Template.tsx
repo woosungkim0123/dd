@@ -45,8 +45,13 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <meta name="twitter:site" content="@사용자이름" />
-        <meta name="twitter:creator" content="@사용자이름" />
+        <meta name="twitter:site" content="@username" />
+        <meta name="twitter:creator" content="@username" />
+
+        <meta
+          name="google-site-verification"
+          content="InQtcntdcHD60MGYzzaWjS-v8iI7BoOQ84mGqHfFnN0"
+        />
 
         <html lang="ko" />
       </Helmet>
@@ -55,7 +60,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
       {children}
       <Footer />
     </Container>
-  )
-}
+  );
+};
 
-export default Template
+export default Template;
