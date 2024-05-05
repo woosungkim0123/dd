@@ -44,13 +44,18 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
-    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/',
+      },
+    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
           formats: ['auto', 'webp'],
-          quality: 100,
+          quality: 70,
           placeholder: 'blurred',
         }
       }
@@ -58,12 +63,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: '<https://my-website.com/>',
+        siteUrl: 'https://woosungkim0123.github.io/',
         stripQueryString: true,
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {

@@ -6,10 +6,10 @@ import ProfileImage from 'components/Main/ProfileImage'
 type IntroductionProps = {
   profileImage: IGatsbyImageData
 }
-
+// 
 const Background = styled.div`
   width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+  background-image: linear-gradient(60deg, #061741 0%, #7a8cb8 100%);
   color: #ffffff;
 `
 
@@ -30,6 +30,8 @@ const Wrapper = styled.div`
 `
 
 const SubTitle = styled.div`
+  margin-top: 15px;
+  margin-left: 10px;
   font-size: 20px;
   font-weight: 400;
 
@@ -39,7 +41,7 @@ const SubTitle = styled.div`
 `
 
 const Title = styled.div`
-  margin-top: 5px;
+  
   font-size: 35px;
   font-weight: 700;
 
@@ -57,8 +59,8 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
         <ProfileImage profileImage={profileImage} />
 
         <div>
-          <SubTitle>Nice to Meet You,</SubTitle>
-          <Title>I'm Junior Frontend Developer Hyun.</Title>
+          <Title>WS Tech Blog</Title>
+          <SubTitle>I want to develop for life</SubTitle>
         </div>
       </Wrapper>
     </Background>

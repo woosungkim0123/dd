@@ -23,7 +23,7 @@ const MarkdownRenderer = styled.div`
   p {
     padding: 3px 0;
   }
-
+  
   // Adjust Heading Element Style
   h1,
   h2,
@@ -34,8 +34,11 @@ const MarkdownRenderer = styled.div`
 
   * + h1,
   * + h2,
-  * + h3 {
+  {
     margin-top: 80px;
+  }
+  * + h3 {
+    margin-top: 20px;
   }
 
   hr + h1,
