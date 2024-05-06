@@ -1,0 +1,101 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.13.3"/><style data-href="/styles.9e907bc32054b7771552.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><link rel="canonical" href="https://woosungkim0123.github.io/2023_11_01_docker_kernel/" data-baseprotocol="https:" data-basehost="woosungkim0123.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1strnqo0"><style data-emotion="css-global 1fwq7nh">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Noto Sans KR','Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1792px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;1024&#x27;%20width=&#x27;1792&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABwAwCdASoUAAsAPp0+mUgloyKhMAgAsBOJQBWABD0qoVPIqAAA/voauKMBeoyIsoyjjmcXkye8ByaeCKaaW99n9FhH+6y6dTnaVyIhgqGrFcivlHzFt/G9zhLtW1nLaYlAiAAA" alt=""/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1792px) 1792px, 100vw" decoding="async" loading="lazy" data-src="/static/e8f590deb34a4f8f7f2bb4b50bb696e6/a7f05/docker_main.webp" data-srcset="/static/e8f590deb34a4f8f7f2bb4b50bb696e6/41dd1/docker_main.webp 448w,/static/e8f590deb34a4f8f7f2bb4b50bb696e6/69efe/docker_main.webp 896w,/static/e8f590deb34a4f8f7f2bb4b50bb696e6/a7f05/docker_main.webp 1792w" alt="thumbnail"/><noscript><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1792px) 1792px, 100vw" decoding="async" loading="lazy" src="/static/e8f590deb34a4f8f7f2bb4b50bb696e6/a7f05/docker_main.webp" srcSet="/static/e8f590deb34a4f8f7f2bb4b50bb696e6/41dd1/docker_main.webp 448w,/static/e8f590deb34a4f8f7f2bb4b50bb696e6/69efe/docker_main.webp 896w,/static/e8f590deb34a4f8f7f2bb4b50bb696e6/a7f05/docker_main.webp 1792w" alt="thumbnail"/></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e1st1jau4"><style data-emotion="css tyreyg">.css-tyreyg{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);margin-bottom:68px;}@media (max-width: 768px){.css-tyreyg{width:30px;font-size:18px;margin-bottom:20px;}}</style><div class="css-tyreyg e1st1jau3"><a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></a></div><style data-emotion="css 10lopry">.css-10lopry{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;margin-bottom:10px;}@media (max-width: 768px){.css-10lopry{font-size:30px;}}</style><div class="css-10lopry e1st1jau2">도커와 커널</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau1"><style data-emotion="css vqx3x2">.css-vqx3x2{margin-bottom:5px;}</style><div class="css-vqx3x2 e1st1jau0">Docker</div><div class="css-vqx3x2 e1st1jau0">2023.11.01.</div></div></div></div><style data-emotion="css 13mfu6s">.css-13mfu6s{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:0px 0 100px;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-13mfu6s p{padding:3px 0;margin-bottom:5px;}.css-13mfu6s h1,.css-13mfu6s h2{font-weight:800;margin-bottom:30px;}.css-13mfu6s h1{margin-top:80px;}.css-13mfu6s h2{margin-top:50px;}.css-13mfu6s h3{margin-top:20px;margin-bottom:15px;}.css-13mfu6s hr+h1,.css-13mfu6s hr+h2,.css-13mfu6s hr+h3{margin-top:0;}.css-13mfu6s h1{font-size:30px;}.css-13mfu6s h2{font-size:25px;}.css-13mfu6s h3{font-size:20px;}.css-13mfu6s blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-13mfu6s ol,.css-13mfu6s ul{margin-left:20px;padding:10px 0 30px;}.css-13mfu6s hr{border:1px solid #000000;margin:100px 0;}.css-13mfu6s a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-13mfu6s pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-13mfu6s pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-13mfu6s code[class*='language-'],.css-13mfu6s pre[class*='language-']{tab-size:2;}.css-13mfu6s table{border-collapse:collapse;width:100%;}.css-13mfu6s th{border:solid 1px #ccc;padding:8px;}.css-13mfu6s td{border:solid 1px #ccc;padding:8px;}@media (max-width: 768px){.css-13mfu6s{width:100%;padding:0px 20px 80px;line-height:1.6;font-size:14px;}.css-13mfu6s h1{font-size:23px;}.css-13mfu6s h2{font-size:20px;}.css-13mfu6s h3{font-size:17px;}.css-13mfu6s img{width:100%;display:block;margin-left:auto;margin-right:auto;}.css-13mfu6s hr{margin:50px 0;}}</style><div class="css-13mfu6s e1ijh0y10"><br>
+<h2>Docker가 뭐야? 그리고 왜 사용해?</h2>
+<p>도커(Docker)는 컨테이너 기술로, 하이퍼바이저 기반의 가상화와는 다른 접근 방식을 사용합니다.</p>
+<blockquote>
+<p>하이퍼바이저(Hypervisor)를 이용한 가상화는 하나의 물리적 서버에서 여러 가상 머신(VM)을 구축하여 운영하는 방식 입니다. 여기서 하이퍼바이저는 가상 머신들을 생성, 관리, 격리하는 중요한 역할을 수행합니다.</p>
+</blockquote>
+<p>하이퍼바이저 가상화가 각 가상 머신에 독립된 운영 체제를 제공하는 반면, 도커는 격리된 환경인 컨테이너에 애플리케이션을 패키징하여 운영 체제를 공유함으로써 리소스를 보다 효율적으로 활용합니다. 이로 인해, 도커는 경량화되어 빠르게 시작하고, 수평적으로 확장이 용이하며, 마이크로서비스 아키텍처에 적합합니다.</p>
+<p>그리고 컨테이너는 애플리케이션과 모든 종속성을 함께 포장하여, 개발된 환경을 그대로 다른 곳에서도 재현할 수 있게 해줍니다.</p>
+<p>가상 머신 환경에서는 작은 규모의 스케일 아웃을 위해서도 큰 용량의 OS 이미지가 필요했지만, 도커를 사용하면 필요한 컨테이너만 추가하여 리소스를 절약할 수 있습니다. 또한, 하나의 컨테이너가 실패해도 다른 컨테이너가 작업을 계속 수행할 수 있어 서비스의 연속성을 지원합니다.</p>
+<h2>도커와 리눅스 커널</h2>
+<p>컨테이너를 가능하게 하는 기술적 기반은 바로 리눅스 커널에 있습니다. 리눅스 커널은 다음과 같은 핵심 기능들을 제공합니다.</p>
+<h3>1. chroot</h3>
+<p>각 컨테이너에 독립된 파일 시스템 환경을 제공합니다. 이는 프로세스가 루트 디렉토리를 변경하게 하여, 마치 별도의 독립된 시스템에서 실행되는 것처럼 만듭니다.</p>
+<h3>2. namespace</h3>
+<p>프로세스, 네트워크, 사용자 등의 시스템 리소스를 격리합니다. 여기에는 6가지 주요 종류의 네임스페이스가 있으며, 각각은 시스템의 특정 부분을 격리하여 컨테이너가 마치 전체 시스템을 독립적으로 소유한 것처럼 동작하게 합니다.</p>
+<ul>
+<li>
+<p>PID (Process ID) namespace</p>
+<p>프로세스 ID 번호를 격리하여, 컨테이너 내의 프로세스가 시스템의 다른 프로세스와 동일한 ID를 가질 수 없도록 합니다.</p>
+</li>
+<li>
+<p>Net (Network) namespace</p>
+<p>네트워크 인터페이스(예: IP 주소, 포트 번호)를 컨테이너별로 격리하여, 각 컨테이너가 독립적인 네트워크 스택을 가질 수 있게 합니다.</p>
+</li>
+<li>
+<p>Mount (File System) namespace</p>
+<p>파일 시스템 마운트 포인트를 격리하여, 컨테이너가 자신만의 파일 시스템을 가질 수 있게 되며, 다른 컨테이너의 파일 시스템에 영향을 주지 않습니다.</p>
+</li>
+<li>
+<p>IPC (Inter-Process Communication) namespace</p>
+<p>프로세스 간 통신(IPC) 리소스를 격리하여, 컨테이너가 다른 컨테이너와 IPC 리소스를 공유하지 않도록 합니다.<sup><a href="#footnote_2">2</a></sup></p>
+<blockquote>
+<p>리눅스 시스템에서 프로세스들은 메시지 큐, 세마포어(신호기), 공유 메모리 등의 방법으로 서로 데이터를 공유하거나 동기화할 수 있는데, IPC namepsace를 사용하면, 한 컨테이너 안에서 실행되는 프로세스들만 그들 사이에 설정된 IPC 메커니즘을 볼 수 있습니다. 다시 말해, 한 컨테이너의 프로세스가 생성한 메시지 큐나 세마포어는 다른 컨테이너에는 보이지 않습니다.</p>
+</blockquote>
+</li>
+<li>
+<p>UTS (UNIX Timesharing System) namespace</p>
+<p>호스트 이름과 도메인 이름을 격리하여, 컨테이너가 시스템의 나머지 부분과 다른 호스트 이름을 가질 수 있게 합니다. 즉, 여러 컨테이너가 동일한 호스트 이름을 사용할 수 있으며, 서로나 호스트 시스템과 충돌하지 않습니다</p>
+</li>
+<li>
+<p>User namespace</p>
+<p>사용자와 그룹 ID를 격리하여, 컨테이너 내에서 루트로 실행되는 프로세스가 호스트 시스템에서는 비루트 권한을 가지게 할 수 있습니다</p>
+</li>
+</ul>
+<h3>3. cgroups (Control Groups)</h3>
+<p>프로세스 그룹에 할당된 리소스의 양을 제한하고, 이 리소스들을 관리합니다. 이를 통해 시스템의 리소스가 공정하게 분배되고, 하나의 애플리케이션이 전체 시스템 리소스를 독점하는 것을 방지할 수 있습니다.</p>
+<br>
+<center>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/509f6c736da23cee17c3743466ecc23a/0f09e/docker_1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAADEElEQVR42qVSXUhTYRhe/pV530VJRFiZdBEIghchUVeVhIRBeOFFMC/C6CpQiBFl2Y3VhRFkzJ9txMm5zXncpu78bO545s7Zjts8O+fYdPOnnbbmXzfJnF/faVOMIKw+eM75eH8enud7X5XqAKdKg5RU3e88qfq/Aw4p3zMtT09UtHejVW2vP5zrMtWXd+jrculc/i/4QIHyO91p6KgcDINj71w7x18MjlXee3b2Xwl/NjS3P714s8faVaoZ6Cy/q6k4KJmipnAXarW6GMCmuoam8tprt+7U1NRcvl535eql+sbm2obbF5RcdbW6eH9PHgW7hEcgju5DUT5eAnFKcQ5xHqIiH1OOQli2r6dsX9+uy9y72RmpyTuXQjyC3Dvo9Nm69ebRHsRmMzqZUUpKailRRuxe/oZSiyBI4R+eLUcYXElrP60D4IuuZpiFdeCeXQET/iiIpL4DZmEtI2cBmFlOPs/3FP1G1NjYWNja2npYq9Uq1lXjbPQx6gklTJifN2KMaPeKEjoZCtnoSASq5B3Touxk51uVWoqiSjUaTckvSsf80SeUkJBoKekzE362z4JxuhFXBBLwU2IyDK0vWNzBLoyL4dPR9JyZDPB9ZozTj7hYqJyhpS8CFPFmj9Afl43RDQCY+a/btJQCnkgCTEKbyp2NrWUjyQzwCDEHt5hOzspb0HZqB+fiILC4AahIIhtJbYPg51XPHqGJYNXD7qDZhLO6YZIzOKbnICSDcre4OJ2F5IYQB90y7Aq+tBDcRxst6FFq1oAFYgYT7teZcG7I6pp5uEdop4UHZGiZIMNLVjIUR3vNE2i/BUdxLoZCpVY4FKfVHX7k8InvPUJizOmPjvSbMXRgmETJ8KJ1kl+ZcHjFV5Aqt/C++YQxuqlMbnMbvhGgBBngM3HALX2DttayYTkDaHHZPckvpZmFDRCIrwEiGId1CQDXKxtKbAG4GQISRnI7aiW5NqjSZ58WnagnTIwzcwQcCGH3CoTDK2CjnlnvkJPtMGGsYcQ9Q8EYruShKgLWY9D+1OgU/1ZR+APiTAXNqnedigAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/509f6c736da23cee17c3743466ecc23a/a59e9/docker_1.webp 192w,
+/static/509f6c736da23cee17c3743466ecc23a/0ca9f/docker_1.webp 384w,
+/static/509f6c736da23cee17c3743466ecc23a/0c8fb/docker_1.webp 640w"
+              sizes="(max-width: 640px) 100vw, 640px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/509f6c736da23cee17c3743466ecc23a/3b721/docker_1.png 192w,
+/static/509f6c736da23cee17c3743466ecc23a/66595/docker_1.png 384w,
+/static/509f6c736da23cee17c3743466ecc23a/0f09e/docker_1.png 640w"
+            sizes="(max-width: 640px) 100vw, 640px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/509f6c736da23cee17c3743466ecc23a/0f09e/docker_1.png"
+            alt="리눅스 커널"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+</center>
+<br>
+<p>Docker는 리눅스 커널의 이러한 기능을 활용하여 컨테이너를 생성 및 관리하고, 사용자가 기능을 쉽게 사용할 수 있도록 추상화한 컨테이너 엔진입니다.</p>
+<h2>리눅스 커널이 없는 곳에서는?</h2>
+<p>Windows나 macOS와 같은 리눅스 커널이 내장되지 않은 환경에서는 Hypervisor 가상화 기술을 사용하여 리눅스 기반 컨테이너를 실행합니다.</p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80"><br/>© 2024 Developer Woosung Kim, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2023_11_01_docker_kernel/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-cfadfbd9f3c4dbd90a87.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-2f54b366957feba77712.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-709185b09b2c5122aacc.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-bbbdf148a6935250ccb8.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="50f082921294fbc38ff2";</script><script src="/webpack-runtime-995dece46526f4e85903.js" async></script><script src="/framework-6a525285796fb83f2864.js" async></script><script src="/app-cfadfbd9f3c4dbd90a87.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

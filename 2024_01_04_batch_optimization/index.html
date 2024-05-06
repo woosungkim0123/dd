@@ -1,0 +1,471 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.13.3"/><style data-href="/styles.9e907bc32054b7771552.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#ccc;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}</style><link rel="canonical" href="https://woosungkim0123.github.io/2024_01_04_batch_optimization/" data-baseprotocol="https:" data-basehost="woosungkim0123.github.io"/><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css 13ku56z">.css-13ku56z{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;}</style><main class="css-13ku56z e1strnqo0"><style data-emotion="css-global 1fwq7nh">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Noto Sans KR','Nanum Myeongjo',serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1792px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg%20height=&#x27;1024&#x27;%20width=&#x27;1792&#x27;%20xmlns=&#x27;http://www.w3.org/2000/svg&#x27;%20version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAACwAwCdASoUAAsAPp0+mUgloyKhMAgAsBOJQBOgA8CaK/yId0oRZAD9zYI37k7whsf8we56CpSUjNheQpc1xShF+MknIUk+K8ovuFwdO42J+w3/VJ65VN+KJgwMmYyD7wSdFY9C5Tl6+aodrkG3XhNNDESYAA==" alt=""/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1792px) 1792px, 100vw" decoding="async" loading="lazy" data-src="/static/7a4a52f9d5a4991579640b72e2413f86/a7f05/batch_main.webp" data-srcset="/static/7a4a52f9d5a4991579640b72e2413f86/41dd1/batch_main.webp 448w,/static/7a4a52f9d5a4991579640b72e2413f86/69efe/batch_main.webp 896w,/static/7a4a52f9d5a4991579640b72e2413f86/a7f05/batch_main.webp 1792w" alt="thumbnail"/><noscript><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1792px) 1792px, 100vw" decoding="async" loading="lazy" src="/static/7a4a52f9d5a4991579640b72e2413f86/a7f05/batch_main.webp" srcSet="/static/7a4a52f9d5a4991579640b72e2413f86/41dd1/batch_main.webp 448w,/static/7a4a52f9d5a4991579640b72e2413f86/69efe/batch_main.webp 896w,/static/7a4a52f9d5a4991579640b72e2413f86/a7f05/batch_main.webp 1792w" alt="thumbnail"/></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css m1156n">.css-m1156n{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:100%;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-m1156n{width:100%;padding:40px 20px;}}</style><div class="css-m1156n e1st1jau4"><style data-emotion="css tyreyg">.css-tyreyg{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff;color:#000000;font-size:22px;cursor:pointer;box-shadow:0 0 10px rgba(0, 0, 0, 0.3);margin-bottom:68px;}@media (max-width: 768px){.css-tyreyg{width:30px;font-size:18px;margin-bottom:20px;}}</style><div class="css-tyreyg e1st1jau3"><a href="/"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg></a></div><style data-emotion="css 10lopry">.css-10lopry{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin-top:auto;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:45px;font-weight:800;margin-bottom:10px;}@media (max-width: 768px){.css-10lopry{font-size:30px;}}</style><div class="css-10lopry e1st1jau2">Spring Batch 성능 최적화</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau1"><style data-emotion="css vqx3x2">.css-vqx3x2{margin-bottom:5px;}</style><div class="css-vqx3x2 e1st1jau0">Optimization / Spring Batch</div><div class="css-vqx3x2 e1st1jau0">2024.01.04.</div></div></div></div><style data-emotion="css 13mfu6s">.css-13mfu6s{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:0px 0 100px;word-break:break-all;line-height:1.8;font-size:16px;font-weight:400;}.css-13mfu6s p{padding:3px 0;margin-bottom:5px;}.css-13mfu6s h1,.css-13mfu6s h2{font-weight:800;margin-bottom:30px;}.css-13mfu6s h1{margin-top:80px;}.css-13mfu6s h2{margin-top:50px;}.css-13mfu6s h3{margin-top:20px;margin-bottom:15px;}.css-13mfu6s hr+h1,.css-13mfu6s hr+h2,.css-13mfu6s hr+h3{margin-top:0;}.css-13mfu6s h1{font-size:30px;}.css-13mfu6s h2{font-size:25px;}.css-13mfu6s h3{font-size:20px;}.css-13mfu6s blockquote{margin:30px 0;padding:5px 15px;border-left:2px solid #000000;font-weight:800;}.css-13mfu6s ol,.css-13mfu6s ul{margin-left:20px;padding:10px 0 30px;}.css-13mfu6s hr{border:1px solid #000000;margin:100px 0;}.css-13mfu6s a{color:#4263eb;-webkit-text-decoration:underline;text-decoration:underline;}.css-13mfu6s pre[class*='language-']{margin:30px 0;padding:15px;font-size:15px;}.css-13mfu6s pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);border-radius:3px;}.css-13mfu6s code[class*='language-'],.css-13mfu6s pre[class*='language-']{tab-size:2;}.css-13mfu6s table{border-collapse:collapse;width:100%;}.css-13mfu6s th{border:solid 1px #ccc;padding:8px;}.css-13mfu6s td{border:solid 1px #ccc;padding:8px;}@media (max-width: 768px){.css-13mfu6s{width:100%;padding:0px 20px 80px;line-height:1.6;font-size:14px;}.css-13mfu6s h1{font-size:23px;}.css-13mfu6s h2{font-size:20px;}.css-13mfu6s h3{font-size:17px;}.css-13mfu6s img{width:100%;display:block;margin-left:auto;margin-right:auto;}.css-13mfu6s hr{margin:50px 0;}}</style><div class="css-13mfu6s e1ijh0y10"><h1></h1>
+<p>Spring Batch를 사용하면서 대용량 데이터를 일괄 처리할 때 발생하는 성능 이슈를 해결하는 방법에 대해서 이야기 해보고자 합니다.</p>
+<br>
+<p>전체 코드는 <a href="https://github.com/woosungkim0123/spring-batch-deep-dive/tree/main/optimization" target="_blank"><strong>링크</strong></a>에서 확인하실 수 있습니다.</p>
+<h1>Batch 성능 개선이 필요한 이유</h1>
+<p>Spring Batch는 대량의 데이터를 효율적으로 처리할 수 있는 강력한 프레임워크지만 처리해야 할 데이터 양이 많을수록 성능 문제가 발생할 가능성이 커집니다.</p>
+<p>예를 들어, Batch 작업 시간이 25만 번에 1시간이 걸린다면, 1억 번 처리 시에는 약 400시간이 소요될 것입니다. 이러한 시간 지연은 비즈니스에 심각한 영향을 미칠 수 있습니다.</p>
+<h1>성능 개선</h1>
+<p>배치 작업은 주로 세 가지 주요 구성 요소인 Reader, Processor, Writer로 나눌 수 있습니다. 이에 대한 성능 개선 방법에 대해 알아보겠습니다.</p>
+<p>주의할 점은 자신이 배치를 사용하는 용도와 상황에 맞춰 방법을 선택하는 것이 중요합니다.</p>
+<h2>Reader 성능 개선</h2>
+<p>복잡한 조회 조건을 통해 데이터를 가져오기 때문에 대부분 배치에서 데이터를 읽는 Reader가 Writer보다 대체적으로 늦게 처리됩니다. 따라서 배치 성능 개선의 첫걸음은 Reader 개선이라고 볼 수 있습니다.</p>
+<h3>1. 커버링 인덱스 사용</h3>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- create_date index</span>
+<span class="token keyword">SELECT</span> p<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">FROM</span> product p <span class="token keyword">JOIN</span> 
+<span class="token punctuation">(</span><span class="token keyword">SELECT</span> id <span class="token keyword">FROM</span> product <span class="token keyword">WHERE</span> create_date <span class="token operator">=</span> :<span class="token keyword">date</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id <span class="token keyword">ASC</span> <span class="token keyword">LIMIT</span> :page<span class="token punctuation">,</span> :pageSize<span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token keyword">temp</span> 
+<span class="token keyword">on</span> <span class="token keyword">temp</span><span class="token punctuation">.</span>id <span class="token operator">=</span> p<span class="token punctuation">.</span>id</code></pre></div>
+<p>서브쿼리에서 커버링 인덱스를 사용하여 조건에 맞는 <code class="language-text">id</code> 값들을 효율적으로 빠르게 추출하고, 메인 쿼리에서 조인 처리을 처리하고 있습니다. 서브쿼리에 커버링 인덱스가 적용되면서, 전체적인 쿼리 실행 시간이 단축됩니다.</p>
+<blockquote>
+<p><strong>커버링 인덱스(Covering Index)</strong></p>
+<p>데이터베이스에서 특정 쿼리를 처리할 때 필요한 모든 데이터를 인덱스에서 바로 가져올 수 있는 인덱스를 말합니다. 일반적으로 데이터베이스는 데이터를 찾기 위해 인덱스를 검색한 다음, 실제 데이터가 저장된 곳으로 이동하여 필요한 데이터를 가져옵니다. 하지만 커버링 인덱스를 사용하면 이 과정이 더 간단해집니다. 대신 인덱스의 용량이 증가하게 됩니다.</p>
+</blockquote>
+<br>
+<p>간단한 사용 예시 코드 보여드리겠습니다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token comment">// JdbcTemplate Paging Reader</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustomJdbcPagingItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token keyword">implements</span> <span class="token class-name">ItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">NamedParameterJdbcTemplate</span> jdbcTemplate<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">String</span> query<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token class-name">RowMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> rowMapper<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> page<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">int</span> pageSize<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> currentItemIndex<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> items<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">LocalDate</span> date<span class="token punctuation">;</span>
+    <span class="token keyword">protected</span> <span class="token class-name">Log</span> logger <span class="token operator">=</span> <span class="token class-name">LogFactory</span><span class="token punctuation">.</span><span class="token function">getLog</span><span class="token punctuation">(</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">CustomJdbcPagingItemReader</span><span class="token punctuation">(</span><span class="token class-name">DataSource</span> dataSource<span class="token punctuation">,</span> <span class="token class-name">String</span> query<span class="token punctuation">,</span> <span class="token class-name">RowMapper</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> rowMapper<span class="token punctuation">,</span> <span class="token keyword">int</span> pageSize<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>jdbcTemplate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">NamedParameterJdbcTemplate</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>query <span class="token operator">=</span> query<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>rowMapper <span class="token operator">=</span> rowMapper<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>page <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>pageSize <span class="token operator">=</span> pageSize<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>currentItemIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setDate</span><span class="token punctuation">(</span><span class="token class-name">LocalDate</span> date<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>date <span class="token operator">=</span> date<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token class-name">T</span> <span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>items <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> currentItemIndex <span class="token operator">>=</span> items<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">fetchNextPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>items <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> items<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">// 더 이상 읽을 데이터가 없음</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> items<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>currentItemIndex<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">fetchNextPage</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">Map</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">></span></span> parameters <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        parameters<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"page"</span><span class="token punctuation">,</span> page <span class="token operator">*</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        parameters<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"pageSize"</span><span class="token punctuation">,</span> pageSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        parameters<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"date"</span><span class="token punctuation">,</span> date<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        items <span class="token operator">=</span> jdbcTemplate<span class="token punctuation">.</span><span class="token function">query</span><span class="token punctuation">(</span>query<span class="token punctuation">,</span> parameters<span class="token punctuation">,</span> rowMapper<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        currentItemIndex <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        page<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token comment">// Batch 작업</span>
+<span class="token annotation punctuation">@JobScope</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">CustomJdbcPagingItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Product</span><span class="token punctuation">></span></span> <span class="token function">reader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">String</span> query <span class="token operator">=</span> <span class="token string">"SELECT p.* FROM product p JOIN (SELECT id FROM product WHERE create_date = :date ORDER BY id ASC LIMIT :page, :pageSize) as temp on temp.id = p.id"</span><span class="token punctuation">;</span>
+    <span class="token class-name">CustomJdbcPagingItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Product</span><span class="token punctuation">></span></span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CustomJdbcPagingItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>dataSource<span class="token punctuation">,</span> query<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ProductRowMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> chunkSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    reader<span class="token punctuation">.</span><span class="token function">setDate</span><span class="token punctuation">(</span>jobParameter<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> reader<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<br>
+<h3>2. OFFSET 성능 개선 사용</h3>
+<p>chunk단위로 처리할 때 보통 페이징 방식을 사용하는데 이때 MySQL은 LIMIT OFFSET을 사용합니다.</p>
+<p>MySQL에서는 먼저 OFFSET 값만큼의 레코드를 건너뛴 후, 그 다음에 LIMIT 값만큼의 레코드를 가져옵니다. 예를 들어, LIMIT 10 OFFSET 1000이라는 쿼리는 처음 1000개의 레코드를 건너뛴 후 다음 10개의 레코드를 선택합니다. 그러다보니 시작할 레코드의 위치까지 모든 행을 건너뛰기 위해 데이터를 읽고 버려야합니다.</p>
+<p>이러한 부분이 대량의 데이터가 있는 테이블에서 성능 저하의 주요 원인이 됩니다.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> product <span class="token keyword">WHERE</span> create_date <span class="token operator">=</span> ? <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id <span class="token keyword">ASC</span> <span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span> <span class="token comment">-- 빠름</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> product <span class="token keyword">WHERE</span> create_date <span class="token operator">=</span> ? <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id <span class="token keyword">ASC</span> <span class="token keyword">limit</span> <span class="token number">5000000</span><span class="token punctuation">,</span> <span class="token number">100</span> <span class="token comment">-- OFFSET이 커질수록 느려짐</span></code></pre></div>
+<br>
+<p>이런 문제를 해결하기 위해 PK를 기준으로 데이터를 정렬하고 OFFSET을 0으로 유지하는 방법을 사용할 수 있습니다.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> product <span class="token keyword">WHERE</span> create_date <span class="token operator">=</span> ? <span class="token operator">AND</span> id <span class="token operator">></span> <span class="token number">0</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id <span class="token keyword">ASC</span> <span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1000</span>
+
+<span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> product <span class="token keyword">WHERE</span> create_date <span class="token operator">=</span> ? <span class="token operator">AND</span> id <span class="token operator">></span> <span class="token number">5000001</span> <span class="token keyword">ORDER</span> <span class="token keyword">BY</span> id <span class="token keyword">ASC</span> <span class="token keyword">limit</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1000</span></code></pre></div>
+<br>
+<h3>3. JdbcCursorItemReader 사용</h3>
+<p>Paging 방식이 아닌 JdbcCursorItemReader는 Cursor를 사용해 데이터가 없을 때까지 지속해서 데이터를 읽는 방식입니다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@JobScope</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">JdbcCursorItemReader</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Product</span><span class="token punctuation">></span></span> <span class="token function">reader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">JdbcCursorItemReaderBuilder</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Product</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">name</span><span class="token punctuation">(</span><span class="token string">"jdbcCursorItemReader"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">fetchSize</span><span class="token punctuation">(</span>chunkSize<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">sql</span><span class="token punctuation">(</span><span class="token string">"SELECT * FROM product WHERE create_date = ? ORDER BY id ASC"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">rowMapper</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ProductRowMapper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">dataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">preparedStatementSetter</span><span class="token punctuation">(</span>ps <span class="token operator">-></span> ps<span class="token punctuation">.</span><span class="token function">setDate</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token class-name">Date</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>jobParameter<span class="token punctuation">.</span><span class="token function">getDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p><strong>주의</strong>: JpaCursorItemReader는 데이터를 모두 읽고 서버에서 직접 Cursor하는 방식이라 OOM(OutOfMemory)을 유발할 수 있습니다. JdbcCursorItemReader 사용을 권장합니다.</p>
+<br>
+<h3>성능 비교</h3>
+<p>100만개 데이터를 대상으로 간단한 조건 쿼리(인덱스 사용)를 사용해서 테스트를 진행하였습니다.</p>
+<br>
+<table>
+<thead>
+<tr>
+<th>Reader</th>
+<th>총 소요시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>QuerydslPagingItemReader</td>
+<td>25분 27초</td>
+</tr>
+<tr>
+<td>QuerydslZeroPagingItemReader</td>
+<td>14분 48초</td>
+</tr>
+<tr>
+<td>JdbcCursorItemReader</td>
+<td>14분 43초</td>
+</tr>
+<tr>
+<td>JdbcCoveringIndexPagingItemReader</td>
+<td>16분 20초</td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>OFFSET을 개선한 QuerydslZeroPagingItemReader의 경우 끝날때 까지 일정한 읽기 속도를 보여줬습니다.</p>
+<br>
+<h2>Processor 성능 개선</h2>
+<p>대규모 데이터를 다루는 통계 쿼리 작성시, 일반적으로 GROUP BY와 SUM을 활용합니다. 하지만 데이터 양이 증가하고 쿼리가 복잡해짐에 따라, 성능적으로 개선하기 힘들어지는 경우가 많습니다.</p>
+<p>여러 테이블을 조인하고 GROUP BY 하는 것은 잘못된 쿼리 실행계획을 만들고 쿼리 튜닝도 어렵게 만듭니다.</p>
+<br>
+<h3>복잡한 쿼리의 문제점</h3>
+<p><strong>JOIN + GROUP BY + SUM</strong>의 조합을 사용하는 복잡한 쿼리는 다음과 같은 문제점을 안고 있습니다.</p>
+<ol>
+<li>
+<p><strong>데이터베이스 부하 증가</strong>: 복잡한 계산과 대량의 데이터 처리는 데이터베이스에 상당한 부하를 야기할 수 있습니다.</p>
+</li>
+<li>
+<p><strong>쿼리 실행 계획 및 튜닝의 어려움</strong>: 복잡한 쿼리는 성능과 관련된 실행 계획의 민감도를 증가시켜, 최적화와 튜닝 과정을 복잡하게 만듭니다.</p>
+</li>
+</ol>
+<br>
+<h3>Redis 파이프라인 사용</h3>
+<p>GROUP BY를 배제하고, 직접적인 집계(Aggregation) 방식을 채택하여 쿼리를 단순화시키는 것으로 성능을 향상 시킬 수 있습니다. 이때, 어플리케이션에서 직접적인 데이터 처리는 OOM(Out Of Memory)이 발생할 수 있어 충분한 메모리와 빠른 연산을 수행하는 <strong>Redis</strong>를 활용할 수 있습니다.</p>
+<p>주의할 점은 Redis를 사용할 때 각 데이터 항목(item)을 처리하며 발생하는 네트워크 I/O가 전체 성능에 영향을 줄 수 있다는 것입니다. Redis 명령은 기본적으로 각 항목을 처리할 때마다 개별적으로 실행되며, 이로 인해 네트워크 I/O가 증가하게 됩니다. 네트워크 I/O가 많아지면 전체적인 응답 시간이 느려지고, 결과적으로는 성능이 저하될 수 있습니다.</p>
+<br>
+<p><strong>Redis 파이프라인</strong>을 사용하면 파이프라인을 통해 여러 Redis 명령을 그룹화하고, 이들을 단일 네트워크 요청으로 묶어 처리함으로써 네트워크 I/O를 줄일 수 있습니다. 예를 들어, 천만 개의 합산 연산을 파이프라인을 통해 처리한다면, 천만 번의 네트워크 I/O 대신 청크 단위로 나누어진 적은 수의 네트워크 I/O로 처리가 가능해집니다.</p>
+<br>
+<p>추가로 Spring Data Redis에서는 이 기능을 직접적으로 지원하지 않으므로, Redis 파이프라인을 위한 별도의 대량 처리 라이브러리 개발이 필요합니다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">ItemWriter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Product</span><span class="token punctuation">></span></span> <span class="token function">redisItemWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> products <span class="token operator">-></span> stringRedisTemplate<span class="token punctuation">.</span><span class="token function">executePipelined</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">RedisCallback</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Object</span><span class="token punctuation">></span></span><span class="token punctuation">)</span> connection <span class="token operator">-></span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">Product</span> product <span class="token operator">:</span> products<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">String</span> key <span class="token operator">=</span> redisKeyPrefix <span class="token operator">+</span> product<span class="token punctuation">.</span><span class="token function">getCreateDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            connection<span class="token punctuation">.</span><span class="token function">stringCommands</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">incrBy</span><span class="token punctuation">(</span>key<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> product<span class="token punctuation">.</span><span class="token function">getAmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">StepExecutionListener</span> <span class="token function">redisToDatabaseSaver</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">StepExecutionListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token annotation punctuation">@Override</span>
+        <span class="token keyword">public</span> <span class="token class-name">ExitStatus</span> <span class="token function">afterStep</span><span class="token punctuation">(</span><span class="token annotation punctuation">@NonNull</span> <span class="token class-name">StepExecution</span> stepExecution<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">EntityManager</span> entityManager <span class="token operator">=</span> entityManagerFactory<span class="token punctuation">.</span><span class="token function">createEntityManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token class-name">EntityTransaction</span> transaction <span class="token operator">=</span> entityManager<span class="token punctuation">.</span><span class="token function">getTransaction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            transaction<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token class-name">Set</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">></span></span> keys <span class="token operator">=</span> redisTemplate<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>redisKeyPrefix <span class="token operator">+</span> <span class="token string">"*"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token class-name">ValueOperations</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Long</span><span class="token punctuation">></span></span> valueOps <span class="token operator">=</span> redisTemplate<span class="token punctuation">.</span><span class="token function">opsForValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">String</span> key <span class="token operator">:</span> keys<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token class-name">Long</span> totalAmount <span class="token operator">=</span> valueOps<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token class-name">LocalDate</span> createDate <span class="token operator">=</span> <span class="token class-name">LocalDate</span><span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>key<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">":"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                    <span class="token class-name">ProductBackup</span> backup <span class="token operator">=</span> <span class="token class-name">ProductBackup</span><span class="token punctuation">.</span><span class="token function">builder</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                            <span class="token punctuation">.</span><span class="token function">amount</span><span class="token punctuation">(</span>totalAmount<span class="token punctuation">)</span>
+                            <span class="token punctuation">.</span><span class="token function">createDate</span><span class="token punctuation">(</span>createDate<span class="token punctuation">)</span>
+                            <span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    entityManager<span class="token punctuation">.</span><span class="token function">merge</span><span class="token punctuation">(</span>backup<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                transaction<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                transaction<span class="token punctuation">.</span><span class="token function">rollback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">throw</span> e<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                entityManager<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> <span class="token class-name">ExitStatus</span><span class="token punctuation">.</span><span class="token constant">COMPLETED</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<br>
+<h3>파이프라인 사용 전 후 성능 비교</h3>
+<p>100만개의 데이터를 대상으로 간단한 SUM 쿼리를 통해 PipeLine 사용 전 후 성능을 비교하였습니다.</p>
+<br>
+<table>
+<thead>
+<tr>
+<th>처리 방법</th>
+<th>총 소요시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redis</td>
+<td>11분 11초</td>
+</tr>
+<tr>
+<td>Redis PipeLine</td>
+<td>48초</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h3>Processor에서 API 사용시 느린 경우</h3>
+<p>Spring Batch의 Processor는 기본적으로 단건 처리를 기반으로 설계되어 있습니다. 각 데이터 항목을 독립적으로 처리할 수 있는 장점이 있지만, API 호출과 같은 네트워크 I/O 작업을 포함할 경우 성능 저하의 원인이 됩니다.</p>
+<p>Processor에서 회원 정보를 조회하는 API가 150ms가 걸리고 chunk 사이즈가 1000이라면 150,000ms(약 2.5분)이 소요됩니다.</p>
+<br>
+<p><strong>벌크 API로 변경</strong></p>
+<p>API 자체를 단건 조회 대신 한번에 여러 항목을 한 번에 조회할 수 있는 벌크 API를 제공하도록 하여 성능을 개선할 수 있습니다.</p>
+<p><strong>Writer 처리로 변경</strong></p>
+<p>API 스펙이 변경이 불가능한 경우, Processor 제거하고 대신 Writer에서 네트워크 I/O 작업을 수행하는 방법이 있습니다.</p>
+<br>
+<h3>RX 기반 멀티 스레드 Writer 처리</h3>
+<p>Reader에서 Item을 단건이 아닌 Chunk Size만큼 List로 넘겨받는 Writer 단계에서 RX(Reactive Extensions)를 활용한 멀티 스레드 방식으로 네트워크 I/O 작업을 병렬 처리하여 성능을 개선할 수 있습니다.</p>
+<br>
+<center>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 542px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0a1d16665df9fd755604d9da3e10f723/47f85/optimization_1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 120.3125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAIAAAB1KUohAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD4ElEQVR42k1UDW/bNhD1398vWLENKzBgAwZ0W7phXbotaRsvrV3bShzHsi1ZEkWJlEhRH5Zky1+x92R5yAiIoI/37t69O7p1OB5T11UuGQTDuXAfSGqHUZdxnyXWNFJe6o3D2KbywegIp8csNjc4dY9Yh0Nrvd2qDzf21V8/0J9f3V+9+Cf9/tPoC2N+eW28+0WOLuf6BWXte/+326/p4KXRdYcaMfTjCd3CxhxH8cCkllByZLgqzXTqZVlBrCBPc0b4IstUKMNYyViFQRAnyQl8bG03m1VVbbabalVtt9v1utrv91mSZlnqMy9SUbksd7tdta62m+26qtbrdVmW8KnB+LHZbPa4r78d8LgIRb1cl7rEXa1WsMC+25+89ntAcKjBh8MBkUBMSlkURRAE8AYS17AAE8cxHJRSuE1TMMqiKDrTxsc5d103z/MGBiKDwQD8AEAe2IGZzWZVVeGwXC6xn8Q+CRYIAZ4IDz7IBidjOoHTYrFAfrgip2VZCB0rhVvYz2CoFbXbycOD6/tJkkRCGNT7ygk+Oy470fECHo3m2bvhRNdtx0EgMGritra7XTgYlITMDFMKWeQ54fwnh+mMPw7vq2rFwzAjPNEMyzBtw0RRKBvIp6enmnacpqGUr8llL7zziMcYUyGjlrp9k1ISWtY8K3LO2EB5r+gDdd0wDFFjnRnUIVjAg/f+rR4b9nTKuR8nSsmi/wHyxT2tW5QFwt+E82+9O13XCSFICy3rzJAeTJIoLovl9VSNqYpECHo89BaicNuh5JGKVZnnSCu5T4xpuVzWYGRG/Egp7CqOX3bDm0kguL9cVSIS0o7NX5ln+5GSSOAzZo2Hs7uekLKmjcyQrhkABDJNEw0DFxDDeByOB8/3lqu6bWgSxEe3mO8/9xkmCIDZQjCIAT5QAbOFycEtOt8MRtNheCanh3EGO44DDKYKUcbjMYZB0zRwabfbCAc7kI+Pj9jBC3Sg2RmMD78BQ+sBQ1TsyIAKERFX6Byy4SfCNQXiDDnr2QZJeD+d1uG/Vc9sEFBKfd+vK//fapqEQs4PA6d6MKMIVQHTTHhTJ87I07yqZtphRLjnV4UmUc8jDimLcjqZgJIxm+WLBSoESXNuoiiHOJGMAs7xN2LbzrNgzZOcGjMpxWQyKYp8NBqlaQLZkKTzqaMiNbq7t6k7MQ0RBPr48Qze7Pexpnl/X114lxfTP3/U8tcD6xvq/9Exu2/T4bVJ3irzfT/9vfud+flL0pt0Pzr6EPlBp/V0PCaGwfuaJkYaHV3rcW/O3rjevcGGHUH0gPaFsKgamv3A6UgiPIr5q2Xb7f4FPeMjb7bSmtIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/0a1d16665df9fd755604d9da3e10f723/a59e9/optimization_1.webp 192w,
+/static/0a1d16665df9fd755604d9da3e10f723/0ca9f/optimization_1.webp 384w,
+/static/0a1d16665df9fd755604d9da3e10f723/535ba/optimization_1.webp 542w"
+              sizes="(max-width: 542px) 100vw, 542px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/0a1d16665df9fd755604d9da3e10f723/3b721/optimization_1.png 192w,
+/static/0a1d16665df9fd755604d9da3e10f723/66595/optimization_1.png 384w,
+/static/0a1d16665df9fd755604d9da3e10f723/47f85/optimization_1.png 542w"
+            sizes="(max-width: 542px) 100vw, 542px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/0a1d16665df9fd755604d9da3e10f723/47f85/optimization_1.png"
+            alt="RX 기반 멀티 스레드 병렬 처리"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+</center>
+<br>
+<p>그림을 보면 다른 데이터 항목들이 병렬적으로 처리되고 있는데 <code class="language-text">parallel(3)</code>은 동시에 세 개의 작업을 처리할 수 있는 병렬 처리 능력을 의미합니다. 병렬 처리된 데이터 스트림은 <code class="language-text">sequential</code> 프로세스를 통해 순차적으로 병합되고 이후 추가적인 INSERT나 UPDATE를 진행하게 됩니다.</p>
+<br>
+<p>주의할 점은 병렬 처리(parallel) 숫자를 무한정으로 늘린다고 빨라지지 않는다는 점입니다. 나누고 병합하는 과정에서 추가적인 리소스가 들어가고 DB 커넥션수와 CPU 리소스를 고려해야합니다.
+스케줄 I/O 시스템 내부적으로 지정해주는 값을 사용하는 것도 좋은 방법입니다.</p>
+<br>
+<h2>Writer 성능 개선</h2>
+<p>Writer에서는 데이터베이스 I/O를 최소화 하는 방법으로 성능을 개선할 수 있습니다.</p>
+<br>
+<h3>배치 삽입(Batch Insert) 활용</h3>
+<p>네트워크 지연(latency)이 성능 저하의 주요 원인이 될 수 있으며, 이를 최소화하기 위해 쿼리를 일괄적으로 처리하는 Batch Insert가 필수적입니다. 이 방식은 데이터베이스 I/O를 최소화하여 성능을 향상시킬 수 있습니다.</p>
+<blockquote>
+<p>Batch Insert</p>
+<p>여러 개의 INSERT 명령을 단일 SQL 쿼리로 결합함으로써 데이터베이스에 대한 호출 횟수를 줄이고, 네트워크 오버헤드와 데이터베이스 서버의 부하를 감소</p>
+</blockquote>
+<p>Batch Insert를 어떻게 사용하는 지에 따라서도 성능 차이가 발생합니다. 이 부분은 HomoEfficio님의 <a href="https://homoefficio.github.io/2020/01/25/Spring-Data%EC%97%90%EC%84%9C-Batch-Insert-%EC%B5%9C%EC%A0%81%ED%99%94/" target="_blank"><strong>Spring Data에서 Batch Insert 최적화</strong></a> 글을 참고하시면 좋을 것 같습니다.</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">JdbcBatchItemWriter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ProductBackup</span><span class="token punctuation">></span></span> <span class="token function">writer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">JdbcBatchItemWriter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ProductBackup</span><span class="token punctuation">></span></span> writer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JdbcBatchItemWriter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    writer<span class="token punctuation">.</span><span class="token function">setDataSource</span><span class="token punctuation">(</span>dataSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    writer<span class="token punctuation">.</span><span class="token function">setSql</span><span class="token punctuation">(</span><span class="token string">"INSERT INTO product_backup (name, amount, create_date) VALUES (:name, :amount, :createDate)"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    writer<span class="token punctuation">.</span><span class="token function">setItemSqlParameterSourceProvider</span><span class="token punctuation">(</span>
+            item <span class="token operator">-></span> <span class="token keyword">new</span> <span class="token class-name">MapSqlParameterSource</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">addValue</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">,</span> item<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">addValue</span><span class="token punctuation">(</span><span class="token string">"amount"</span><span class="token punctuation">,</span> item<span class="token punctuation">.</span><span class="token function">getAmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">addValue</span><span class="token punctuation">(</span><span class="token string">"createDate"</span><span class="token punctuation">,</span> item<span class="token punctuation">.</span><span class="token function">getCreateDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> writer<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>총 데이터는 30만개이며 소요시간의 경우 Writer만 변경해서 배치를 실행시킨 결과입니다.</p>
+<br>
+<table>
+<thead>
+<tr>
+<th>처리 방법</th>
+<th>총 소요시간</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JpaItemWriter</td>
+<td>4분 17초</td>
+</tr>
+<tr>
+<td>JdbcBatchItemWriter</td>
+<td>3분 42초</td>
+</tr>
+</tbody>
+</table>
+<br>
+<h3>IN 절 활용</h3>
+<p>쿼리 IN 절을 사용하여 단일 쿼리 내에서 여러 값을 대상으로 조회하거나 업데이트할 때 데이터베이스의 처리량을 최적화할 수 있습니다.</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token comment">-- Chunk Size 1000 기준</span>
+
+<span class="token comment">-- 단일 UPDATE</span>
+<span class="token comment">-- Chunk Size만큼 Database I/O가 발생 (최대 1000번) </span>
+<span class="token keyword">UPDATE</span> <span class="token keyword">user</span> <span class="token keyword">SET</span> grade <span class="token operator">=</span> <span class="token string">'BASIC'</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment">-- ...</span>
+<span class="token keyword">UPDATE</span> <span class="token keyword">user</span> <span class="token keyword">SET</span> grade <span class="token operator">=</span> <span class="token string">'NORMAL'</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token comment">-- ...</span>
+<span class="token keyword">UPDATE</span> <span class="token keyword">user</span> <span class="token keyword">SET</span> grade <span class="token operator">=</span> <span class="token string">'VIP'</span> <span class="token keyword">WHERE</span> id <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+
+<span class="token comment">-- IN UPDATE</span>
+<span class="token comment">-- Chunk Size와 상관없이 최대 3번의 Database I/O가 발생 (최대 3번)</span>
+<span class="token keyword">UPDATE</span> <span class="token keyword">user</span> <span class="token keyword">SET</span> grade <span class="token operator">=</span> <span class="token string">'BASIC'</span> <span class="token keyword">WHERE</span> id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">UPDATE</span> <span class="token keyword">user</span> <span class="token keyword">SET</span> grade <span class="token operator">=</span> <span class="token string">'NORMAL'</span> <span class="token keyword">WHERE</span> id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">10</span> <span class="token number">11</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">UPDATE</span> <span class="token keyword">user</span> <span class="token keyword">SET</span> grade <span class="token operator">=</span> <span class="token string">'VIP'</span> <span class="token keyword">WHERE</span> id <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">500</span><span class="token punctuation">,</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>위 예시와 같이, IN 절을 사용하면 하나의 쿼리로 여러 행을 동시에 처리할 수 있고 복수의 조건을 만족하는 레코드를 효과적으로 필터링하는 데 특히 유용합니다.</p>
+<br>
+<h3>JDBC의 ExecuteBatch 활용</h3>
+<p>그러나 IN 절로 처리하기 어려운 상황이나 대량의 데이터를 다룰 때는 JDBC의 ExecuteBatch를 사용할 수 있습니다. ExecuteBatch는 INSERT, UPDATE, DELETE 등의 다양한 종류의 쿼리를 한 번에 묶어 처리할 수 있습니다.</p>
+<p>여러 SQL 명령문을 하나의 배치로 묶어 데이터베이스 서버에 한 번에 전송하고 실행함으로써, 네트워크 지연과 데이터베이스 I/O를 최소화할 수 있습니다. (Chunk Size를 1000으로 설정한 경우, 최대 1000개의 쿼리가 한 번에 묶여서 데이터베이스로 전송되고 실행됩니다)</p>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token comment">// Item Writer</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CustomJdbcBatchItemWriter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token keyword">implements</span> <span class="token class-name">ItemWriter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">T</span><span class="token punctuation">></span></span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">DataSource</span> dataSource<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">String</span> sql<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">BiConsumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">PreparedStatement</span><span class="token punctuation">,</span> <span class="token class-name">T</span><span class="token punctuation">></span></span> preparedStatementSetter<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">CustomJdbcBatchItemWriter</span><span class="token punctuation">(</span><span class="token class-name">DataSource</span> dataSource<span class="token punctuation">,</span> <span class="token class-name">String</span> sql<span class="token punctuation">,</span>
+                                     <span class="token class-name">BiConsumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">PreparedStatement</span><span class="token punctuation">,</span> <span class="token class-name">T</span><span class="token punctuation">></span></span> preparedStatementSetter<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>dataSource <span class="token operator">=</span> dataSource<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>sql <span class="token operator">=</span> sql<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>preparedStatementSetter <span class="token operator">=</span> preparedStatementSetter<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">write</span><span class="token punctuation">(</span><span class="token class-name">Chunk</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">T</span><span class="token punctuation">></span></span> chunk<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Exception</span> <span class="token punctuation">{</span>
+        <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span> <span class="token keyword">extends</span> <span class="token class-name">T</span><span class="token punctuation">></span></span> items <span class="token operator">=</span> chunk<span class="token punctuation">.</span><span class="token function">getItems</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">Connection</span> connection <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token class-name">PreparedStatement</span> preparedStatement <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            connection <span class="token operator">=</span> dataSource<span class="token punctuation">.</span><span class="token function">getConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 커넥션 획득</span>
+            connection<span class="token punctuation">.</span><span class="token function">setAutoCommit</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 자동 커밋 비활성화</span>
+            preparedStatement <span class="token operator">=</span> connection<span class="token punctuation">.</span><span class="token function">prepareStatement</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>sql<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//sql 로 prepared statement 생성</span>
+
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">T</span> item <span class="token operator">:</span> items<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                preparedStatementSetter<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>preparedStatement<span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// prepared statement에 파라미터 바인딩</span>
+                preparedStatement<span class="token punctuation">.</span><span class="token function">addBatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// batch에 prepared statement 추가</span>
+            <span class="token punctuation">}</span>
+
+            preparedStatement<span class="token punctuation">.</span><span class="token function">executeBatch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 배치에 추가된 모든 SQL 문을 데이터베이스에 한 번에 전송</span>
+            connection<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 트랜잭션을 커밋</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>connection <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                connection<span class="token punctuation">.</span><span class="token function">rollback</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Exception</span><span class="token punctuation">(</span><span class="token string">"Error executing batch write"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>preparedStatement <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                preparedStatement<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>connection <span class="token operator">!=</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                connection<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-highlight" data-language="java"><pre class="language-java"><code class="language-java"><span class="token comment">// Batch Writer</span>
+<span class="token annotation punctuation">@Bean</span>
+<span class="token keyword">public</span> <span class="token class-name">CustomJdbcBatchItemWriter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ProductBackup</span><span class="token punctuation">></span></span> <span class="token function">writer</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token class-name">String</span> sql <span class="token operator">=</span> <span class="token string">"INSERT INTO product_backup (name, amount, create_date) VALUES (?, ?, ?)"</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">CustomJdbcBatchItemWriter</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">></span></span><span class="token punctuation">(</span>dataSource<span class="token punctuation">,</span> sql<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token class-name">PreparedStatement</span> ps<span class="token punctuation">,</span> <span class="token class-name">ProductBackup</span> item<span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token punctuation">{</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            ps<span class="token punctuation">.</span><span class="token function">setString</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> item<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ps<span class="token punctuation">.</span><span class="token function">setLong</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> item<span class="token punctuation">.</span><span class="token function">getAmount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            ps<span class="token punctuation">.</span><span class="token function">setDate</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token class-name">Date</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">getCreateDate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">SQLException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RuntimeException</span><span class="token punctuation">(</span><span class="token string">"Error setting PreparedStatement values"</span><span class="token punctuation">,</span> e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<p><strong>Batch Insert와 JDBC의 ExecuteBatch Insert 차이</strong></p>
+<ul>
+<li>
+<p>Batch Insert: 한 번에 많은 데이터를 삽입하는 하나의 큰 SQL 문을 작성하여 처리</p>
+</li>
+<li>
+<p>JDBC ExecuteBatch: 여러 개의 작은 INSERT 문을 모아 한 번에 처리하는 방법</p>
+</li>
+</ul>
+<br>
+<h3>명시적으로 쿼리를 구현</h3>
+<p>성능을 높이기 위해 필요한 컬럼만 업데이트하는 명시적 쿼리를 구현합니다. 필요하지 않은 컬럼을 제외함으로써 데이터베이스 서버 부하와 전송(Fetch) 데이터량을 감소시키며, 네트워크를 통해 전송된 데이터의 객체 변환 처리(Deserialize) 시간도 단축시킬 수 있습니다.</p>
+<br>
+<h3>JPA 사용 고민</h3>
+<ul>
+<li>
+<p>JPA는 편리하고 풀스택 ORM이지만, 복잡성과 불필요한 체크 로직으로 인해 성능 저하를 일으킬 수 있습니다. 배치 처리에서는 Reader와 Writer가 구분되어 있어서 JPA의 영속성 관리와 더티 체킹이 불필요합니다.</p>
+</li>
+<li>
+<p>일부 JPA 구현체는 엔티티를 업데이트할 때 모든 필드를 포함하는 업데이트 쿼리를 생성할 수 있어, 이로 인해 불필요한 데이터베이스 트래픽과 부하가 발생합니다.</p>
+</li>
+<li>
+<p>IDENTITY ID 생성 전략을 사용할 경우, JPA는 각각의 Insert 연산 후 즉시 생성된 ID를 필요로 하므로, 배치 Insert 기능을 지원하지 않습니다.</p>
+</li>
+<li>
+<p>데이터를 읽을 때부터 JPA를 사용하지 않는 것도 성능 최적화를 위한 좋은 방법이 될 수 있습니다.</p>
+</li>
+</ul>
+<h1>결론</h1>
+<p>성능 최적화를 고려할 때, 단계적으로 접근하는 것이 중요합니다.</p>
+<p>처음부터 복잡하고 직관적이지 않은 방법을 도입하기보다는 크게 변경하지 않는 선에서 성능 향상을 시도해보는 것이 좋습니다.</p>
+<p>그럼에도 불구하고 성능 이슈가 여전히 존재한다면, 단계적으로 한 단계씩 최적화를 진행하여 문제를 해결하는 것이 중요하다고 생각됩니다.</p>
+<h1>참조</h1>
+<p><a href="https://youtu.be/2IIwQDIi3ys?si=GbWT9cK-BHC-tDwn" target="_blank"><strong>[Data] Batch Performance 극한으로 끌어올리기: 1억 건 데이터 처리를 위한 노력 / if(kakao)dev2022</strong></a></p>
+<p><a href="https://www.youtube.com/watch?v=VSwWHHkdQI4&t=95s" target="_blank"><strong>Spring Batch 애플리케이션 성능 향상을 위한 주요 팁 (김남윤, Yun)</strong></a></p>
+<p><a href="https://techblog.woowahan.com/2662" target="_blank"><strong>Spring Batch와 Querydsl - 우아한 기술 블로그</strong></a></p>
+<p><a href="https://jojoldu.tistory.com/297" target="_blank"><strong>[Redis] SpringBoot Data Redis 로컬/통합 테스트 환경 구축하기</strong></a></p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80"><br/>© 2024 Developer Woosung Kim, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2024_01_04_batch_optimization/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-cfadfbd9f3c4dbd90a87.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-2f54b366957feba77712.js\"],\"component---src-pages-index-tsx\":[\"/component---src-pages-index-tsx-709185b09b2c5122aacc.js\"],\"component---src-templates-post-template-tsx\":[\"/component---src-templates-post-template-tsx-bbbdf148a6935250ccb8.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="50f082921294fbc38ff2";</script><script src="/webpack-runtime-995dece46526f4e85903.js" async></script><script src="/framework-6a525285796fb83f2864.js" async></script><script src="/app-cfadfbd9f3c4dbd90a87.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
