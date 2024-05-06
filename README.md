@@ -14,11 +14,11 @@
 Jekyll Github -> Tistory -> Naver 를 거쳐 현재 **Gatsby Github** 로 운영 중입니다.
 
 <br>
-<center>
 
-<img src="./blog_image.png" alt="배민수" style="width: 500px;">
+<p align="center">
+<img src="./blog_image.png" alt="블로그 이미지" style="width: 500px;">
+</p>
 
-</center>
 <br>
 
 ## 참고 자료
