@@ -7,11 +7,10 @@
 <li>
 <p><strong>성과, 문제와 해결</strong></p>
 </li>
-<li>
-<p><strong>아쉬운 점</strong></p>
-</li>
 </ul>
 <p>에 대해 이야기 해보겠습니다.</p>
+<br>
+<p><strong>링크를 통해 <a href="https://github.com/woosungkim0123/devridge-api" target="_blank" rel="nofollow">코드</a>를 확인하실 수 있습니다.</strong></p>
 <h1>프로젝트 소개</h1>
 <p>DEVRIDGE는 채용 공고와 학습 과정을 결합하여 <strong>맞춤형 학습 로드맵</strong>을 제공하고 학습 자료(영상, 책)를 소개하는 서비스 입니다.</p>
 <h2>프로젝트 관리</h2>
@@ -402,7 +401,17 @@ Vuser : 99,  Errors : 0</p>
   </a>
     </span></p>
 <br>
-<h2>2. CI / CD 및 무중단 배포 도입</h2>
+<h2>2. 멀티 모듈 아키텍처로 개선</h2>
+<p>프로젝트 초기에는 Admin, Api, Domain의 모든 기능을 단일 서버 내에 통합하여 개발했습니다.
+이 구조는 개발 초기에는 관리와 배포가 수월했지만, 시간이 지남에 따라 유지보수와 확장성에 많은 어려움을 겪게 되었습니다.</p>
+<br>
+<p>이를 해결하기 위해 단일 구조에서 Admin, Api, Domain으로 나누어 각각 독립적인 멀티 모듈 구조로 개선하였습니다. 이 변경을 통해 각 모듈은 자신의 역할에 더욱 집중할 수 있게 되었으며, 시스템 전체의 유지보수성과 확장성이 향상되었습니다.</p>
+<h3>개선점</h3>
+<p>기존보다는 나아졌지만 개선한 멀티 모듈 구조는 서비스가 점점 커질 수록 공통 (Common) 모듈이 점점 커지고 리팩토링이 힘든 지점에 이를 수 있다는 문제가 있다는 사실을 알게 되었습니다.</p>
+<p>‘공통 모듈의 저주’에 대해서는 밑에 포스트에 자세히 정리되어 있으니 참고하시면 좋을 것 같습니다.</p>
+<p><a href="https://techblog.woowahan.com/2637/" target="_blank" rel="nofollow">멀티모듈 설계 이야기 with Spring, Gradle</a></p>
+<br>
+<h2>3. CI / CD 및 무중단 배포 도입</h2>
 <p>개발 과정에서 코드 통합과 배포의 효율성을 높이기 위해 CI/CD (지속적 통합 및 지속적 배포)를 도입하였습니다.</p>
 <p>CI / CD를 도입함으로써 코드의 품질을 지속적으로 관리할 수 있게 되었고, 코드 변경 사항을 신속하게 테스트하고 배포할 수 있는 체계를 구축했습니다.</p>
 <br>
@@ -507,19 +516,79 @@ Vuser : 99,  Errors : 0</p>
 <p>지속적인 통합(CD)을 도입하여 자동으로 배포하게 함으로써 이러한 문제들이 대폭 감소하였습니다.</p>
 <br>
 <h3>무중단 배포</h3>
+<br>
+<center>
+<p><img src="/004bfe67d0c338a1dedfa456060b4643/devridge_10.gif" alt="무중단 배포"></p>
+</center>
+<br>
 <p>서비스의 가용성을 최대화하기 위해 무중단 배포를 도입하였습니다.</p>
-<p>Blue/Green 배포는 기존 버전(Blue)과 새 버전(Green)의 서비스를 동시에 운영하며, 새 버전의 안정성을 확인한 후 트래픽을 점차적으로 이전하여 가용성을 저해하지 않고 서비스를 업데이트할 수 있습니다.</p>
-<p>이 방법을 통해 배포 과정에서 발생할 수 있는 다운타임을 없애고, 만약 새 버전에 문제가 발견되면 즉시 이전 버전으로 롤백할 수 있는 안전망을 마련했습니다</p>
+<p>Blue/Green 배포 전략을 사용해 기존 버전(Blue)과 새 버전(Green)의 서비스를 동시에 운영하며, 새 버전의 안정성을 확인한 후 트래픽을 이전하여 가용성을 저해하지 않고 서비스를 업데이트 하였습니다.</p>
 <blockquote>
 <p>서비스 가용성</p>
 <p>얼마나 안정적으로 사용자에게 접근 가능한 상태를 유지하는지를 나타내는 지표</p>
 </blockquote>
-<h1>문제와 해결</h1>
-<p>데이터가 중복적으로 발생하는 문제가 발생</p>
-<p>MVP 단계에서 배포를 중복을 허용한 상태에서 프로젝트를 열지.. 아니면 이 부분을 해결하여 코드를 수정하고 할지에 대한 고민이였는데</p>
-<p>MVP 먼저 배포하고 그 후에 수정을 진행하는 방식을 선택함</p>
 <br>
-<h1>아쉬운 점</h1></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80"><br/>© 2024 Developer Woosung Kim, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2024_03_20_devridge/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<h1>문제와 해결</h1>
+<h2>문제 상황</h2>
+<p>기획 변경으로 유사한 로드맵을 가진 새로운 직군이 도입되었습니다.</p>
+<p>이로 인해 기존 직군과 겹치는 코스 정보가 증가하고, 이와 연계된 학습 자료들도 대량으로 중복되는 문제가 발생했습니다.</p>
+<br>
+<center>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 243px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2be14896d3cde3ff09fde193722f7b08/32847/devridge_11.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 53.645833333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABaklEQVR42n2SWW/CQAyE9///GB72ASGBEpC475uQA9KEcFMgkCJASvt1q1aVoJ0Hy7J27PF4xfvfiOOYuNvtXNe1LGs0GhmGYZpmv9/fbreJRELED/ihEReLxXK5vFwunucVCoVcLpfP53Vdv16v2WxWPE77YkZRBJN4OBwYxfAXBVfB9/1kMino+qZAwtPb7QZ5vV5vNhvaH4/H/X6P4MlkMp1Ox+MxSbVapW8qlRIsQ2k4HJoK7XabPAiCVwV2Y2fbtpvNZq1WQzkRwfCllKLVarEDy1DqdDrkVOCcz+f7/Y7+MAwHg4GvECh4CplMRpxOp/AbjEI8OnnBqoiHQKQRchqNRqlUqtfr3W6Xpul0Wjw9D43gkLA2KmjqOA4bIb5SqeAfzz4nx88ADQtnsxnKGYth8/l8tVpxNiJuoejJqX7Ph8lVsB0OUovFIprL5TKecRdN08T/PwzgNhfp9Xp8D0yGCQ3lUsoP8pJVKCcy3KgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2be14896d3cde3ff09fde193722f7b08/a59e9/devridge_11.webp 192w,
+/static/2be14896d3cde3ff09fde193722f7b08/e040f/devridge_11.webp 243w"
+              sizes="(max-width: 243px) 100vw, 243px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2be14896d3cde3ff09fde193722f7b08/3b721/devridge_11.png 192w,
+/static/2be14896d3cde3ff09fde193722f7b08/32847/devridge_11.png 243w"
+            sizes="(max-width: 243px) 100vw, 243px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2be14896d3cde3ff09fde193722f7b08/32847/devridge_11.png"
+            alt="기획 변경 상황"
+            title=""
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+</center>
+<h2>해결</h2>
+<h3>문제 인식</h3>
+<p>유사한 코스와 학습 자료들의 중복은 데이터 관리를 복잡하게 만들며, 유의미한 통계를 도출하는 데도 장애가 된다고 판단하여 이 문제를 해결하기로 결정했습니다.</p>
+<h3>고민과 해결</h3>
+<p>선택한 해결책은 데이터베이스(DB) 설계를 재구성하고 로직을 수정하며 중복 데이터 삭제 하는 방법이였습니다.</p>
+<p>그러나 MVP 배포가 임박한 상황에서 이런 대규모 변경을 시행하면 배포 일정이 지연될 위험이 있었습니다. 지연이 계속되면 프로젝트 전체 일정에 차질이 생길 수 있기 때문에, 어느 상황에서도 배포 일정을 지키는 것이 우선이었습니다.</p>
+<br>
+<p>결국, MVP를 우선 배포하고, 이후 긴급하게 DB와 로직 수정을 진행하는 방식을 선택했습니다.</p>
+<h1>맺으며</h1>
+<p>이번 프로젝트를 통해 기획부터 유지 보수까지 프로젝트의 전 과정을 직접 경험했습니다.</p>
+<p>시간 제약으로 인해 자동 크롤링 및 배치 처리를 통한 데이터 생성을 완성하지 못한 점은 큰 아쉬움으로 남습니다.</p>
+<br>
+<p>그러나 이 과정 속에서 많은 것을 배웠습니다.</p>
+<p>가장 귀중한 교훈 중 하나는 데이터와 성능 지표를 수치로 표현하는 것의 중요성이었습니다. 백엔드 시스템에서 성능을 평가하고 개선하기 위해서는 철저한 성능 테스트가 필수적임을 깨달았습니다. 또한, 다양한 문제에 직면하면서 이를 해결하고 시스템의 성능을 개선하는 과정에서도 많은 성장을 경험했습니다.</p></div><style data-emotion="css hx9xpc">@media (max-width: 768px){.css-hx9xpc{padding:0 20px;}}</style><div class="css-hx9xpc e1gqsjds0"></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v80"><br/>© 2024 Developer Woosung Kim, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2024_03_20_devridge/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
