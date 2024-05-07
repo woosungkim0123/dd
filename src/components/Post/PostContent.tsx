@@ -11,7 +11,7 @@ const MarkdownRenderer = styled.div`
   flex-direction: column;
   width: 768px;
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 0px 0 100px;
   word-break: break-all;
 
   // Markdown Style
@@ -22,23 +22,29 @@ const MarkdownRenderer = styled.div`
   // Apply Padding Attribute to All Elements
   p {
     padding: 3px 0;
+    margin-bottom: 5px;
   }
   
   // Adjust Heading Element Style
   h1,
-  h2,
-  h3 {
+  h2 {
     font-weight: 800;
     margin-bottom: 30px;
   }
 
-  * + h1,
-  * + h2,
+  h1
   {
     margin-top: 80px;
   }
-  * + h3 {
+
+  h2
+  {
+    margin-top: 50px;
+  }
+
+  h3 {
     margin-top: 20px;
+    margin-bottom: 15px;
   }
 
   hr + h1,
@@ -71,7 +77,7 @@ const MarkdownRenderer = styled.div`
   ol,
   ul {
     margin-left: 20px;
-    padding: 30px 0;
+    padding: 10px 0 30px;
   }
 
   // Adjust Horizontal Rule style
@@ -103,10 +109,24 @@ const MarkdownRenderer = styled.div`
     tab-size: 2;
   }
 
+  table {
+      border-collapse: collapse;
+      width: 100%;
+  }
+  th {
+    border: solid 1px #ccc;
+    padding: 8px;
+  }
+
+  td {
+      border: solid 1px #ccc;
+      padding: 8px;
+  }
+
   // Markdown Responsive Design
   @media (max-width: 768px) {
     width: 100%;
-    padding: 80px 20px;
+    padding: 0px 20px 80px;
     line-height: 1.6;
     font-size: 14px;
 
@@ -124,6 +144,9 @@ const MarkdownRenderer = styled.div`
 
     img {
       width: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     hr {

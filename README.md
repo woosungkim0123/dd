@@ -15,6 +15,12 @@ Jekyll Github -> Tistory -> Naver 를 거쳐 현재 **Gatsby Github** 로 운영
 
 <br>
 
+<p align="center">
+<img src="./blog_image.png" alt="블로그 이미지" style="width: 500px;">
+</p>
+
+<br>
+
 ## 참고 자료
 
 [Jekyll 블로그 만들기](https://ogaeng.com/jekyll-blog-install/)
